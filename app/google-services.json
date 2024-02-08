@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "341975788385",
+    "firebase_url": "https://fireguard-e433a-default-rtdb.firebaseio.com",
+    "project_id": "fireguard-e433a",
+    "storage_bucket": "fireguard-e433a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:341975788385:android:1760ec2a3bb4a9f2def320",
+        "android_client_info": {
+          "package_name": "edu.ewubd.fireguard"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBhAXHEny9la2Fs_R10vBV2xfqELtnZ3A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -63,14 +63,13 @@
                 android:textSize="30sp">
 
             </TextView>
+
             <com.github.lzyzsd.circleprogress.DonutProgress
                 android:id="@+id/Donut_Gas_Progress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:donut_progress="25"
                 android:layout_gravity="center_horizontal"
-                >
-            </com.github.lzyzsd.circleprogress.DonutProgress>
+                app:donut_progress="25"></com.github.lzyzsd.circleprogress.DonutProgress>
 
 
         </LinearLayout>
@@ -151,14 +150,18 @@
                 android:textSize="30sp">
 
             </TextView>
-
-            <com.github.lzyzsd.circleprogress.DonutProgress
-                android:id="@+id/Donut_Temperature_Progress"
+            <TextView
+                android:id="@+id/temparature"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:donut_progress="25"
-                android:layout_gravity="center">
-            </com.github.lzyzsd.circleprogress.DonutProgress>
+
+                android:textColor="@color/blue"
+                android:textStyle="bold"
+                android:layout_gravity="center_horizontal"
+                android:textSize="30sp">
+
+            </TextView>
+
 
         </LinearLayout>
 
