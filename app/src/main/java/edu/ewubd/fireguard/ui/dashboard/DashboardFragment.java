@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -60,6 +61,11 @@ public class DashboardFragment extends Fragment {
                 new ViewModelProvider(this).get(DashboardViewModel.class);
 
         root = binding.getRoot();
+
+        // Hide the action bar
+        if (getActivity() != null) {
+            ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
+        }
         return root;
 
     }
