@@ -6,33 +6,36 @@
     android:id="@+id/rootLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:background="#FFE2A8"
     >
 
     <!-- title -->
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/title"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:paddingTop="10dp"
-        android:background="@color/white"
-        android:gravity="center_vertical"
+        android:layout_height="wrap_content"
+
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+
+        >
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
+            android:gravity="center_horizontal"
             android:text="FireGuard"
-            android:textColor="@color/black"
-            android:textSize="40sp"
+            android:textColor="#171716"
+            android:textSize="30sp"
+android:layout_marginTop="30dp"
+
             android:textStyle="bold" />
 
     </androidx.appcompat.widget.Toolbar>
 
-    <!-- Scrolling -->
     <ScrollView
 
         android:layout_width="match_parent"
@@ -44,10 +47,11 @@
 
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#FFFFFF"
+            android:background="@drawable/curve_baground"
             android:paddingHorizontal="10dp"
             android:paddingBottom="40dp"
-            android:paddingTop="10dp"
+            android:paddingTop="30dp"
+            android:layout_marginTop="20dp"
             tools:context=".main.MainActivity"
 
             >
@@ -61,14 +65,14 @@
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_margin="5dp"
                 >
-                <TextView
+<!--                <TextView-->
 
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
-                    android:text="Date"
-                    android:textColor="#252525"
-                    android:textSize="19dp"/>
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginBottom="16dp"-->
+<!--                    android:text="Date"-->
+<!--                    android:textColor="#252525"-->
+<!--                    android:textSize="19dp"/>-->
 
             </LinearLayout>
 
@@ -380,18 +384,18 @@
                 </androidx.cardview.widget.CardView>
             </GridLayout>
 
-            <TextView
-                android:id="@+id/appDetail"
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:layout_marginVertical="5dp"
-                android:background="@drawable/footerbg"
-                android:gravity="center"
-                android:text="Our apps details"
-                android:textColor="@color/white"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/gridLay" />
+<!--            <TextView-->
+<!--                android:id="@+id/appDetail"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="80dp"-->
+<!--                android:layout_marginVertical="5dp"-->
+<!--                android:background="@drawable/footerbg"-->
+<!--                android:gravity="center"-->
+<!--                android:text="Our apps details"-->
+<!--                android:textColor="@color/white"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/gridLay" />-->
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
