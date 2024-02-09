@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
@@ -34,6 +35,7 @@ public class DashboardFragment extends Fragment {
     private DonutProgress humidityProgress;
     private DonutProgress gasProgress;
     private TextView temperature;
+    private String savedTemperatureValue;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -66,10 +68,28 @@ public class DashboardFragment extends Fragment {
         if (getActivity() != null) {
             ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
         }
+        if (savedInstanceState != null) {
+            savedTemperatureValue = savedInstanceState.getString("temperatureValue");
+        }
         return root;
 
     }
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        // Save the current temperature value
+        outState.putString("temperatureValue", temperature.getText().toString());
+    }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        // Restore the temperature value if it was previously saved
+        if (savedTemperatureValue != null) {
+            temperature.setText(savedTemperatureValue);
+        }
+    }
     @Override
     public void onDestroyView() {
         super.onDestroyView();
@@ -113,7 +133,7 @@ public class DashboardFragment extends Fragment {
                     if (key .equals( "temperature")) {
 
                         //Log.d("tempPercentage", String.valueOf(perc));
-                        temperature.setText(String.valueOf(sensorValue)+" * C");
+                        temperature.setText(String.valueOf(sensorValue)+"  °C");
                     }
                 }
             }
