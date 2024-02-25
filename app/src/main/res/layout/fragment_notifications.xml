@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
+        android:background="#FFE2A8"
         tools:context=".notificationActivity">
 
         <soup.neumorphism.NeumorphCardView
@@ -39,6 +39,7 @@
         <soup.neumorphism.NeumorphCardView
             android:id="@+id/top_Header"
             style="@style/Widget.Neumorph.CardView"
+            app:neumorph_backgroundColor="@color/color_white"
             android:layout_width="350dp"
             android:layout_height="50dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -59,6 +60,7 @@
         <soup.neumorphism.NeumorphCardView
             android:id="@+id/Title1"
             style="@style/Widget.Neumorph.CardView"
+            app:neumorph_backgroundColor="@color/color_white"
             android:layout_width="350dp"
             android:layout_height="50dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -80,6 +82,7 @@
         <soup.neumorphism.NeumorphCardView
             android:id="@+id/Title2"
             style="@style/Widget.Neumorph.CardView"
+            app:neumorph_backgroundColor="@color/color_white"
             android:layout_width="350dp"
             android:layout_height="50dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -101,6 +104,7 @@
         <soup.neumorphism.NeumorphCardView
             android:id="@+id/Title3"
             style="@style/Widget.Neumorph.CardView"
+            app:neumorph_backgroundColor="@color/color_white"
             android:layout_width="350dp"
             android:layout_height="50dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -125,6 +129,7 @@
         <soup.neumorphism.NeumorphCardView
             android:id="@+id/Title5"
             style="@style/Widget.Neumorph.CardView"
+            app:neumorph_backgroundColor="@color/color_white"
             android:layout_width="350dp"
             android:layout_height="50dp"
             app:layout_constraintEnd_toEndOf="parent"
