@@ -7,48 +7,38 @@
     android:layout_height="match_parent"
     android:background="#FFE2A8"
     >
-
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:gravity="center_horizontal"
-        android:text="Dashboard"
-        android:textColor="#171716"
-        android:textSize="30sp"
-        android:textStyle="bold" />
-
-
-    <soup.neumorphism.NeumorphCardView
-        android:id="@+id/TemptMeter"
-        style="@style/Widget.Neumorph.CardView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_below="@id/title">
         <LinearLayout
+            android:id="@+id/TemptMeter"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="200dp"
             android:orientation="vertical"
             android:padding="5dp"
-            android:background="@drawable/bg_white">
+            android:background="@drawable/bg_view">
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:gravity="center_horizontal"
+                android:text="Dashboard"
+                android:textColor="#171716"
+                android:textSize="30sp"
+                android:textStyle="bold" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Temperature"
-                android:textColor="@color/blue"
+                android:textColor="@color/black"
                 android:textStyle="bold"
                 android:layout_gravity="center_horizontal"
-                android:textSize="20sp">
+                android:textSize="20sp"/>
 
-            </TextView>
             <TextView
                 android:id="@+id/temparature"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="25  °C"
-                android:textColor="@color/blue"
+                android:textColor="#717273"
                 android:textStyle="bold"
                 android:layout_gravity="center_horizontal"
                 android:textSize="20sp">
@@ -58,34 +48,17 @@
 
         </LinearLayout>
 
-
-    </soup.neumorphism.NeumorphCardView>
-
-
-
-
-
-    <LinearLayout
-        android:id="@+id/highlight"
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:layout_below="@+id/TemptMeter">
-        <TextureView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-    </LinearLayout>
     <TextView
         android:id="@+id/st"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/highlight"
-        android:layout_marginStart="20dp"
-        android:gravity="left"
+        android:layout_below="@+id/TemptMeter"
+         android:layout_centerHorizontal="true"
+        android:gravity="center"
         android:text="statistics"
         android:padding="5dp"
         android:textColor="#171716"
-        android:textSize="20sp"
+        android:textSize="30sp"
         android:textStyle="bold" />
 
     <LinearLayout
@@ -93,15 +66,15 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/st"
         android:padding="6dp"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
 
         <!-- Gas Meter Card -->
         <soup.neumorphism.NeumorphCardView
             android:id="@+id/GasMeter"
             style="@style/Widget.Neumorph.CardView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             android:layout_weight="1"
             app:neumorph_backgroundColor="@color/color_white">
 
@@ -123,8 +96,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
                 android:padding="15dp"
-                app:donut_progress="25"
-                />
+                app:donut_progress="30" />
 
         </soup.neumorphism.NeumorphCardView>
 
@@ -132,9 +104,9 @@
         <soup.neumorphism.NeumorphCardView
             android:id="@+id/HumidityMeter"
             style="@style/Widget.Neumorph.CardView"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_weight="1"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             app:neumorph_backgroundColor="@color/color_white"
             >
 
