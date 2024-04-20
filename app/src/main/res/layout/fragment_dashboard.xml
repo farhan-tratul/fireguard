@@ -5,6 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     android:background="#FFE2A8"
     >
         <LinearLayout
@@ -38,8 +39,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="25  °C"
-                android:textColor="#717273"
-                android:textStyle="bold"
+                android:textColor="#040404"
+
                 android:layout_gravity="center_horizontal"
                 android:textSize="20sp">
 
@@ -55,7 +56,7 @@
         android:layout_below="@+id/TemptMeter"
          android:layout_centerHorizontal="true"
         android:gravity="center"
-        android:text="statistics"
+        android:text="Statistics"
         android:padding="5dp"
         android:textColor="#171716"
         android:textSize="30sp"
@@ -65,7 +66,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/st"
-        android:padding="6dp"
         android:orientation="vertical">
 
 
@@ -74,29 +74,34 @@
             android:id="@+id/GasMeter"
             style="@style/Widget.Neumorph.CardView"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            app:neumorph_backgroundColor="@color/color_white">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:text="Gas level"
-                android:gravity="center_horizontal"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:textSize="20dp"/>
+            android:layout_height="wrap_content"
+            app:neumorph_backgroundColor="#FBB96A"
+            app:neumorph_shadowElevation="0dp"
+            >
 
 
             <com.github.lzyzsd.circleprogress.DonutProgress
                 android:id="@+id/Donut_Gas_Progress"
-                android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:padding="15dp"
-                app:donut_progress="30" />
+                android:layout_gravity="center_horizontal"
+                app:donut_progress="30"
+                app:donut_text_color="@color/Black"
+                app:donut_finished_color="@color/colorTitleBold"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Gas level"
+                android:gravity="center_horizontal"
+                android:layout_gravity="bottom"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="20dp"
+              android:layout_marginTop="100dp"
+                android:layout_marginBottom="10dp"
+
+           />
 
         </soup.neumorphism.NeumorphCardView>
 
@@ -105,20 +110,13 @@
             android:id="@+id/HumidityMeter"
             style="@style/Widget.Neumorph.CardView"
             android:layout_width="match_parent"
-            android:layout_weight="1"
-            android:layout_height="0dp"
-            app:neumorph_backgroundColor="@color/color_white"
+            app:neumorph_shadowElevation="0dp"
+            android:layout_height="wrap_content"
+            app:neumorph_backgroundColor="#FBB96A"
+
             >
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:gravity="center_horizontal"
-                android:text="Humidity level"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:textSize="20dp"/>
+
 
 
             <com.github.lzyzsd.circleprogress.DonutProgress
@@ -126,10 +124,21 @@
                 android:layout_width="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:padding="15dp"
                 app:donut_progress="25"
+                app:donut_text_color="@color/Black"
+                app:donut_finished_color="@color/colorTitleBold"
                 />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="center_horizontal"
+                android:layout_gravity="bottom"
+                android:text="Humidity level"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:layout_marginTop="100dp"/>
         </soup.neumorphism.NeumorphCardView>
 
     </LinearLayout>
