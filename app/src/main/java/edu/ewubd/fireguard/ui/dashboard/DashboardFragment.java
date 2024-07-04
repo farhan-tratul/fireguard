@@ -130,14 +130,7 @@ public class DashboardFragment extends Fragment {
                         double    floorValue= Math.ceil(perc);
                         gasProgress.setProgress((float) floorValue);
 
-                        if (perc>4.00){
-                            Context context = getContext();
-                            Intent serviceIntent = new Intent(context, NotificationService.class);
 
-                            context.startService(serviceIntent);// Start the service
-                            Log.d("AlarmReceiver", "Alarm triggered");
-
-                        }
 
                     }
 
