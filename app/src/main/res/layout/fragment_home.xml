@@ -153,7 +153,7 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:orientation="vertical"
-                        android:background="@drawable/card_background"
+
                         >
 
                         <ImageView
@@ -191,7 +191,7 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:orientation="vertical"
-                        android:background="@drawable/card_background"
+
                         >
 
                         <ImageView
@@ -227,7 +227,7 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:orientation="vertical"
-                        android:background="@drawable/card_background"
+
                         >
 
                         <ImageView
@@ -264,7 +264,7 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:orientation="vertical"
-                        android:background="@drawable/card_background"
+
                         >
 
                         <ImageView
@@ -302,7 +302,7 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:orientation="vertical"
-                        android:background="@drawable/card_background"
+
                         >
 
                         <ImageView
@@ -340,7 +340,7 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:orientation="vertical"
-                        android:background="@drawable/card_background"
+
                         >
 
                         <ImageView
@@ -375,7 +375,7 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:orientation="vertical"
-                        android:background="@drawable/card_background"
+
                         >
 
                         <ImageView

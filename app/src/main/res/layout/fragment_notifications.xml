@@ -19,7 +19,7 @@
             style="@style/Widget.Neumorph.CardView"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:background="@drawable/card_background"
+
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -42,7 +42,7 @@
             app:neumorph_backgroundColor="@color/color_white"
             android:layout_width="350dp"
             android:layout_height="50dp"
-            android:background="@drawable/gradient_background"
+
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/topText">
@@ -64,7 +64,7 @@
             app:neumorph_backgroundColor="@color/color_white"
             android:layout_width="350dp"
             android:layout_height="50dp"
-            android:background="@drawable/gradient_background"
+
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/top_Header">
@@ -85,7 +85,7 @@
             app:neumorph_backgroundColor="@color/color_white"
             android:layout_width="350dp"
             android:layout_height="50dp"
-            android:background="@drawable/gradient_background"
+
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/Title1">
@@ -107,7 +107,7 @@
             app:neumorph_backgroundColor="@color/color_white"
             android:layout_width="350dp"
             android:layout_height="50dp"
-            android:background="@drawable/gradient_background"
+
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/Title2">
@@ -129,7 +129,7 @@
             app:neumorph_backgroundColor="@color/color_white"
             android:layout_width="350dp"
             android:layout_height="50dp"
-            android:background="@drawable/gradient_background"
+
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/Title3">

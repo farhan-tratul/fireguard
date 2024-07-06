@@ -3,88 +3,77 @@ package edu.ewubd.fireguard;
 import android.Manifest;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.graphics.PixelFormat;
-import android.net.Uri;
+
 import android.os.Build;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.util.Log;
-import android.view.Gravity;
-import android.view.View;
-import android.view.Window;
+import android.view.MenuItem;
 import android.view.WindowManager;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
-import androidx.core.content.ContextCompat;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
-
-import edu.ewubd.fireguard.R;
 import edu.ewubd.fireguard.databinding.ActivityMainBinding;
-import edu.ewubd.fireguard.ui.notifications.NotificationsViewModel;
+import edu.ewubd.fireguard.ui.dashboard.DashboardFragment;
+import edu.ewubd.fireguard.ui.home.HomeFragment;
+import edu.ewubd.fireguard.ui.notifications.NotificationsFragment;
+
 
 public class MainActivity extends AppCompatActivity {
     private WindowManager windowManager;
     private ActivityMainBinding binding;
     private static final String TAG = "MainActivity";
     private FirebaseFirestore db;
-
-
     private static final String CHANNEL_ID = "fireguard_notification_channel";
+    BottomNavigationView bottomNavigationView;
 
+    HomeFragment homeFragment = new HomeFragment();
+    DashboardFragment DashboardFragment = new DashboardFragment();
+    NotificationsFragment notificationFragment = new NotificationsFragment();
+
+    private static final int NAVIGATION_HOME = R.id.navigation_home;
+    private static final int NAVIGATION_DASHBOARD = R.id.navigation_dashboard;
+    private static final int NAVIGATION_NOTIFICATION = R.id.navigation_notifications;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        bottomNavigationView  = findViewById(R.id.bottom_navigation);
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.container,homeFragment).commit();
+
+        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem item) {
+                switch (item.getItemId()){
+                    case NAVIGATION_HOME:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.container,homeFragment).commit();
+                        return true;
+                    case NAVIGATION_DASHBOARD:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.container,DashboardFragment).commit();
+                        return true;
+                    case NAVIGATION_NOTIFICATION:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.container,notificationFragment).commit();
+                        return true;
+                }
+
+                return false;
+            }
+        });
 
         // Initialize Firebase Firestore
         db = FirebaseFirestore.getInstance();
-
-
-
-
-        Window window = getWindow();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-            window.setStatusBarColor(ContextCompat.getColor(this, R.color.bg_1));
-        }
-
-        // Set the status bar icons to be dark
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            View decorView = getWindow().getDecorView();
-            decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-        }
-
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
-
-        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
-                .build();
-
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-        NavigationUI.setupWithNavController(binding.navView, navController);
-
-
-
             db.collection("Notification_Alert")
                     .addSnapshotListener(new EventListener<QuerySnapshot>() {
                         @Override
