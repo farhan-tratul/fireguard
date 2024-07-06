@@ -61,8 +61,7 @@ public class DashboardFragment extends Fragment {
             }
         }, 5000);
 
-        DashboardViewModel dashboardViewModel =
-                new ViewModelProvider(this).get(DashboardViewModel.class);
+
 
         root = binding.getRoot();
 
