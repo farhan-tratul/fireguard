@@ -4,7 +4,13 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="Main">#45e8bd</color>
-    <color name="colorPrimary">#e3e6ed</color>
+    <color name="colorPrimary">#1E1E2C</color>
+    <color name="colorPrimaryDark">#232330</color>
+    <color name="colorAccent">#00B4DB</color>
+    <color name="colorTextPrimary">#FFFFFF</color>
+    <color name="colorTextSecondary">#A1A1A1</color>
+    <color name="colorButtonBackground">#3A3A52</color>
+    <color name="colorButtonText">#FFFFFF</color>
 
     <color name="neumorph_background_color">#F1F3F6</color>
 
@@ -37,8 +43,6 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
-    <color name="colorPrimaryDark">#0293a9</color>
-    <color name="colorAccent">#016676</color>
     <color name="colorTitleBold">#565759</color>
     <color name="quran">#08405e</color>
     <color name="namaj_top">#65e4a3</color>
@@ -57,9 +61,4 @@
     <color name="miniTitle">#2A2E43</color>
     <color name="bg_Highlighter">#D0F1E0</color>
 
-
 </resources>
-
-
-
-

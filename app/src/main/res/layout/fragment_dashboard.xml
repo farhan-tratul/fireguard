@@ -5,8 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
-    android:background="#FFE2A8"
+    android:background="@drawable/curve_baground"
     >
         <LinearLayout
             android:id="@+id/TemptMeter"
@@ -14,7 +13,7 @@
             android:layout_height="200dp"
             android:orientation="vertical"
             android:padding="5dp"
-            android:background="@drawable/bg_view">
+            android:background="@drawable/curve_baground">
             <TextView
                 android:id="@+id/title"
                 android:layout_width="match_parent"
@@ -75,7 +74,7 @@
             style="@style/Widget.Neumorph.CardView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:neumorph_backgroundColor="#FBB96A"
+            app:neumorph_backgroundColor="#063970"
             app:neumorph_shadowElevation="0dp"
             >
 
@@ -86,8 +85,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 app:donut_progress="30"
-                app:donut_text_color="@color/Black"
-                app:donut_finished_color="@color/colorTitleBold"
+                app:donut_text_color="#FFFFFFFF"
+                app:donut_finished_color="@color/Yellow"
                 />
             <TextView
                 android:layout_width="match_parent"
@@ -112,7 +111,7 @@
             android:layout_width="match_parent"
             app:neumorph_shadowElevation="0dp"
             android:layout_height="wrap_content"
-            app:neumorph_backgroundColor="#FBB96A"
+            app:neumorph_backgroundColor="#063970"
 
             >
 
@@ -125,8 +124,8 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
                 app:donut_progress="25"
-                app:donut_text_color="@color/Black"
-                app:donut_finished_color="@color/colorTitleBold"
+                app:donut_text_color="@color/white"
+                app:donut_finished_color="@color/Yellow"
                 />
             <TextView
                 android:layout_width="match_parent"

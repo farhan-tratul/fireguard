@@ -1,5 +1,6 @@
 <!-- res/drawable/progress_bar_drawable.xml -->
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+<layer-list
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!-- Background -->
     <item android:id="@android:id/background">
@@ -16,13 +17,10 @@
     <item android:id="@android:id/progress">
         <clip>
             <shape>
-                <solid android:color="#717273" />
-<corners
-    android:radius="30dp">
-
-</corners>
+                <solid android:color="@color/Yellow" />
+                <corners android:radius="30dp">
+                </corners>
             </shape>
-
         </clip>
     </item>
 
