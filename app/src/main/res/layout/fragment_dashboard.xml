@@ -7,45 +7,45 @@
     android:layout_height="match_parent"
     android:background="@drawable/curve_baground"
     >
-        <LinearLayout
-            android:id="@+id/TemptMeter"
+    <LinearLayout
+        android:id="@+id/TemptMeter"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="vertical"
+        android:padding="5dp"
+        android:background="@drawable/curve_baground">
+        <TextView
+            android:id="@+id/title"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:orientation="vertical"
-            android:padding="5dp"
-            android:background="@drawable/curve_baground">
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:gravity="center_horizontal"
-                android:text="Dashboard"
-                android:textColor="#FFFFE0"
-                android:textSize="30sp"
-                android:textStyle="bold" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Temperature"
-                android:textColor="#FFFFE0"
-                android:textStyle="bold"
-                android:layout_gravity="center_horizontal"
-                android:textSize="20sp"/>
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:gravity="center_horizontal"
+            android:text="Dashboard"
+            android:textColor="#FFFFE0"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Temperature"
+            android:textColor="#FFFFE0"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            android:textSize="20sp"/>
 
-            <TextView
-                android:id="@+id/temparature"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="25  °C"
-                android:textColor="#FFFFE0"
-                android:layout_gravity="center_horizontal"
-                android:textSize="20sp">
+        <TextView
+            android:id="@+id/temparature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="25  °C"
+            android:textColor="#FFFFE0"
+            android:layout_gravity="center_horizontal"
+            android:textSize="20sp">
 
-            </TextView>
+        </TextView>
 
 
-        </LinearLayout>
+    </LinearLayout>
 
     <TextView
         android:id="@+id/st"
@@ -73,8 +73,10 @@
             style="@style/Widget.Neumorph.CardView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:neumorph_backgroundColor="#063970"
+            app:neumorph_backgroundColor="#042e6b"
             app:neumorph_shadowElevation="0dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
             app:neumorph_shadowColorLight="@android:color/transparent"
             app:neumorph_shadowColorDark="@android:color/transparent"
             >
@@ -87,7 +89,7 @@
                 android:layout_gravity="center_horizontal"
                 app:donut_progress="30"
                 app:donut_text_color="#FFFFFFFF"
-                app:donut_finished_color="@color/Yellow"
+                app:donut_finished_color="#278dfe"
                 />
             <TextView
                 android:layout_width="match_parent"
@@ -98,10 +100,10 @@
                 android:textColor="#FFFFE0"
                 android:textStyle="bold"
                 android:textSize="20dp"
-              android:layout_marginTop="100dp"
+                android:layout_marginTop="100dp"
                 android:layout_marginBottom="10dp"
 
-           />
+                />
 
         </soup.neumorphism.NeumorphCardView>
 
@@ -113,6 +115,8 @@
             app:neumorph_shadowElevation="0dp"
             android:layout_height="wrap_content"
             app:neumorph_backgroundColor="#063970"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
             app:neumorph_shadowColorLight="@android:color/transparent"
             app:neumorph_shadowColorDark="@android:color/transparent"
             >
@@ -127,7 +131,7 @@
                 android:layout_height="wrap_content"
                 app:donut_progress="25"
                 app:donut_text_color="@color/white"
-                app:donut_finished_color="@color/Yellow"
+                app:donut_finished_color="#278dfe"
                 />
             <TextView
                 android:layout_width="match_parent"
@@ -140,6 +144,46 @@
                 android:textStyle="bold"
                 android:textSize="20dp"
                 android:layout_marginTop="100dp"/>
+        </soup.neumorphism.NeumorphCardView>
+
+        <!-- CO Meter Card View -->
+        <soup.neumorphism.NeumorphCardView
+            android:id="@+id/CarbonMonoxideMeter"
+            style="@style/Widget.Neumorph.CardView"
+            android:layout_width="match_parent"
+            app:neumorph_shadowElevation="0dp"
+            android:layout_height="wrap_content"
+            app:neumorph_backgroundColor="#063970"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            app:neumorph_shadowColorLight="@android:color/transparent"
+            app:neumorph_shadowColorDark="@android:color/transparent"
+            >
+
+
+
+
+            <com.github.lzyzsd.circleprogress.DonutProgress
+                android:id="@+id/Carbon_Monoxide_Progress"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                app:donut_progress="25"
+                app:donut_text_color="@color/white"
+                app:donut_finished_color="#278dfe"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:gravity="center_horizontal"
+                android:layout_gravity="bottom"
+                android:text="Carbon Monoxide level"
+                android:textColor="#FFFFE0"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:layout_marginTop="100dp"/>
+
         </soup.neumorphism.NeumorphCardView>
 
     </LinearLayout>
