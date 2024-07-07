@@ -19,76 +19,130 @@
             style="@style/Widget.Neumorph.CardView"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:background="@drawable/card_background"
+
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:neumorph_shadowColorLight="@android:color/transparent"
-            app:neumorph_shadowColorDark="@android:color/transparent"
-            >
+            app:layout_constraintTop_toTopOf="parent">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="Notification"
-                android:textColor="#FFFFE0"
+                android:textColor="@color/Dark"
                 android:textSize="40sp"
                 android:textStyle="bold"/>
 
         </soup.neumorphism.NeumorphCardView>
 
+
         <soup.neumorphism.NeumorphCardView
-            android:id="@+id/topReort"
+            android:id="@+id/top_Header"
             style="@style/Widget.Neumorph.CardView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/card_background"
-            app:layout_constraintEnd_toEndOf="@id/topText"
-            app:layout_constraintStart_toStartOf="@id/topText"
-            app:layout_constraintTop_toTopOf="@id/topText"
-            app:neumorph_shadowColorLight="@android:color/transparent"
-            app:neumorph_shadowColorDark="@android:color/transparent"
-            >
+            app:neumorph_backgroundColor="@color/color_white"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="left"
-                android:padding="16dp"
-                android:layout_marginTop="100dp">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/topText">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Temperature Level:    25 degree "
-                    android:textColor="#FFFFE0"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="8dp"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Gas Level:                    25 % "
-                    android:textColor="#FFFFE0"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="8dp"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Humidity Level:           25 % "
-                    android:textColor="#FFFFE0"
-                    android:textSize="20sp"
-                    android:textStyle="bold"/>
-            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Today's report are as follows:"
+                android:textColor="@color/dark_3"
+                android:layout_gravity="left"
+                android:textSize="20sp"/>
 
         </soup.neumorphism.NeumorphCardView>
 
 
+        <soup.neumorphism.NeumorphCardView
+            android:id="@+id/Title1"
+            style="@style/Widget.Neumorph.CardView"
+            app:neumorph_backgroundColor="@color/color_white"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/top_Header">
+
+            <TextView
+                android:text="Status : "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:textColor="@color/dark_3"
+                android:textSize="20sp"/>
+
+        </soup.neumorphism.NeumorphCardView>
+
+        <soup.neumorphism.NeumorphCardView
+            android:id="@+id/Title2"
+            style="@style/Widget.Neumorph.CardView"
+            app:neumorph_backgroundColor="@color/color_white"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/Title1">
+
+            <TextView
+                android:text="Status : "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/dark_3"
+                android:layout_gravity="left"
+                android:textSize="20sp"/>
+
+        </soup.neumorphism.NeumorphCardView>
+
+
+        <soup.neumorphism.NeumorphCardView
+            android:id="@+id/Title3"
+            style="@style/Widget.Neumorph.CardView"
+            app:neumorph_backgroundColor="@color/color_white"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/Title2">
+
+            <TextView
+                android:text="Status : "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:textColor="@color/dark_3"
+                android:textSize="20sp"/>
+
+        </soup.neumorphism.NeumorphCardView>
+
+
+        <soup.neumorphism.NeumorphCardView
+            android:id="@+id/Title5"
+            style="@style/Widget.Neumorph.CardView"
+            app:neumorph_backgroundColor="@color/color_white"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/Title3">
+
+            <TextView
+                android:text="To Be Continued"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/dark_3"
+                android:gravity="left"
+                android:textSize="20sp"/>
+
+        </soup.neumorphism.NeumorphCardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

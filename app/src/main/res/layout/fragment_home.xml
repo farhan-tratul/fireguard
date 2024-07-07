@@ -153,6 +153,7 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:orientation="vertical"
+
                         >
 
                         <ImageView
@@ -274,7 +275,7 @@
                             android:src="@drawable/notification" />
 
                         <TextView
-                            android:layout_marginStart="30dp"
+                            android:layout_marginStart="35dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
@@ -314,7 +315,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="30dp"
+                            android:layout_marginStart="35dp"
                             android:gravity="center"
                             android:text="Actions"
                             android:textStyle="bold"
@@ -352,7 +353,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="25dp"
+                            android:layout_marginStart="20dp"
                             android:gravity="center"
                             android:textStyle="bold"
                             android:text="humidity"
@@ -390,7 +391,7 @@
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:textStyle="bold"
-                            android:layout_marginStart="5dp"
+                            android:layout_marginStart="20dp"
                             android:text="Trusted Contacts"
                             android:textColor="@color/black" />
                     </LinearLayout>
