@@ -153,7 +153,6 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:orientation="vertical"
-                        android:background="@drawable/card_background"
                         >
 
                         <ImageView
@@ -191,7 +190,7 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:orientation="vertical"
-                        android:background="@drawable/card_background"
+
                         >
 
                         <ImageView
@@ -227,7 +226,7 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:orientation="vertical"
-                        android:background="@drawable/card_background"
+
                         >
 
                         <ImageView
@@ -264,7 +263,7 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:orientation="vertical"
-                        android:background="@drawable/card_background"
+
                         >
 
                         <ImageView
@@ -275,7 +274,7 @@
                             android:src="@drawable/notification" />
 
                         <TextView
-                            android:layout_marginStart="35dp"
+                            android:layout_marginStart="30dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
@@ -302,7 +301,7 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:orientation="vertical"
-                        android:background="@drawable/card_background"
+
                         >
 
                         <ImageView
@@ -315,7 +314,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="35dp"
+                            android:layout_marginStart="30dp"
                             android:gravity="center"
                             android:text="Actions"
                             android:textStyle="bold"
@@ -340,7 +339,7 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:orientation="vertical"
-                        android:background="@drawable/card_background"
+
                         >
 
                         <ImageView
@@ -353,7 +352,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
+                            android:layout_marginStart="25dp"
                             android:gravity="center"
                             android:textStyle="bold"
                             android:text="humidity"
@@ -375,7 +374,7 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:orientation="vertical"
-                        android:background="@drawable/card_background"
+
                         >
 
                         <ImageView
@@ -391,7 +390,7 @@
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:textStyle="bold"
-                            android:layout_marginStart="20dp"
+                            android:layout_marginStart="5dp"
                             android:text="Trusted Contacts"
                             android:textColor="@color/black" />
                     </LinearLayout>
