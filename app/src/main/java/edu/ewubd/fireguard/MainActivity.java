@@ -1,8 +1,13 @@
 package edu.ewubd.fireguard;
 
+
+
+
+
 import android.Manifest;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 
 import android.os.Build;
@@ -22,7 +27,13 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 import edu.ewubd.fireguard.databinding.ActivityMainBinding;
+import edu.ewubd.fireguard.ui.NotificationDatabaseHelper;
 import edu.ewubd.fireguard.ui.dashboard.DashboardFragment;
 import edu.ewubd.fireguard.ui.home.HomeFragment;
 import edu.ewubd.fireguard.ui.notifications.NotificationsFragment;
@@ -33,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
     private static final String TAG = "MainActivity";
     private FirebaseFirestore db;
+
     private static final String CHANNEL_ID = "fireguard_notification_channel";
     BottomNavigationView bottomNavigationView;
 
@@ -50,8 +62,9 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         bottomNavigationView  = findViewById(R.id.bottom_navigation);
+        NotificationDatabaseHelper dbHelper = new NotificationDatabaseHelper(this);
+        String timestamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date());
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.container,homeFragment).commit();
 
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
@@ -91,12 +104,18 @@ public class MainActivity extends AppCompatActivity {
                                     case MODIFIED:
                                         Log.d(TAG, "Modified document: " + dc.getDocument().getData());
                                         showNotification("Alert!", "gas leak");
+
+                                        dbHelper.insertstatus("gas","gas is leaking",timestamp);
+
                                         break;
 
                                 }
                             }
                         }
                     });
+
+
+
 
     }
 
