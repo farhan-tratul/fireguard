@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         NotificationDatabaseHelper dbHelper = new NotificationDatabaseHelper(this);
         String timestamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date());
 
-
+        getSupportFragmentManager().beginTransaction().replace(R.id.container,homeFragment).commit();
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Initialize Firebase Firestore
+
         db = FirebaseFirestore.getInstance();
             db.collection("Notification_Alert")
                     .addSnapshotListener(new EventListener<QuerySnapshot>() {
