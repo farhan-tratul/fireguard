@@ -79,6 +79,7 @@ public class DashboardFragment extends Fragment {
                         Double temperature = document.getDouble("temperature");
                         Double humidity = document.getDouble("humidity");
                         Double gas_value = document.getDouble("gas_value");
+                        Double co_value = document.getDouble("co_value");
 
                       if(temperature!=null){
                           temperatureView.setText(String.valueOf(temperature) + " °C");
@@ -86,11 +87,14 @@ public class DashboardFragment extends Fragment {
                       if(humidity!=null){
                           humidityProgress.setProgress(humidity.floatValue());
                       }
-                        if(gas_value!=null){
+                      if(co_value!=null){
+                           // humidityProgress.setProgress(humidity.floatValue());
+                      }
+                      if(gas_value!=null){
                             double perc = (gas_value * 100) / 4095;
                             double floorValue = Math.ceil(perc);
                             gasProgress.setProgress((float) floorValue);
-                        }
+                      }
                         Log.d(TAG, "DocumentSnapshot data: " + document.getData());
                     } else {
                         Log.d(TAG, "No such document");
