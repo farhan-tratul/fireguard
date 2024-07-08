@@ -7,25 +7,24 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="15dp"
-    android:background="@drawable/contact_item_background"
     tools:context=".ContactListItemActivity">
 
     <TextView
         android:id="@+id/contactName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:textStyle="bold"
         android:textColor="@color/black"
-        android:textSize="20sp"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="10dp"/>
+        android:textSize="20sp" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_below="@id/contactName"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp">
 
         <Button
             android:id="@+id/callButton"
@@ -34,10 +33,7 @@
             android:text="Call"
             android:textSize="14sp"
             android:padding="10dp"
-            android:layout_marginEnd="10dp"
-            app:neumorph_shadowColorLight="@color/white"
-            app:neumorph_shadowColorDark="@color/black"
-            app:neumorph_shapeType="pressed"/>
+            android:layout_marginEnd="10dp"/>
 
         <Button
             android:id="@+id/sosButton"
@@ -46,10 +42,7 @@
             android:text="Send SOS"
             android:textSize="14sp"
             android:padding="10dp"
-            android:layout_marginEnd="10dp"
-            app:neumorph_shadowColorLight="@color/white"
-            app:neumorph_shadowColorDark="@color/black"
-            app:neumorph_shapeType="pressed"/>
+            android:layout_marginEnd="10dp"/>
 
         <Button
             android:id="@+id/infoButton"
@@ -57,13 +50,7 @@
             android:layout_height="wrap_content"
             android:text="Info"
             android:textSize="14sp"
-            android:padding="10dp"
-            app:neumorph_shadowColorLight="@color/white"
-            app:neumorph_shadowColorDark="@color/black"
-            app:neumorph_shapeType="pressed"/>
+            android:padding="10dp"/>
 
     </LinearLayout>
 </RelativeLayout>
-
-
-
