@@ -61,4 +61,11 @@
     <color name="miniTitle">#2A2E43</color>
     <color name="bg_Highlighter">#D0F1E0</color>
 
+    <color name="item_background">#FFFFFF</color> <!-- White background -->
+    <color name="item_background_pressed">#E0E0E0</color> <!-- Light gray background for pressed state -->
+
+    <!-- Additional colors for text -->
+    <color name="title_text_color">#000000</color> <!-- Black text for title -->
+    <color name="timestamp_text_color">#666666</color> <!-- Dark gray text for timestamp -->
+    <color name="message_text_color">#333333</color> <!-- Darker gray text for message -->
 </resources>
