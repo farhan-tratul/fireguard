@@ -45,6 +45,7 @@ dependencies {
     implementation("com.github.fornewid:neumorphism:0.3.2") // Change single quotes to double quotes
     implementation 'com.github.lzyzsd:circleprogress:1.2.1'
     implementation 'com.google.firebase:firebase-database:21.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
 
     implementation 'com.google.firebase:firebase-firestore:25.0.0'
     implementation 'com.google.firebase:firebase-messaging:24.0.0'
