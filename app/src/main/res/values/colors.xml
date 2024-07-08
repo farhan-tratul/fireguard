@@ -3,6 +3,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+
+
+    <color name="Original_Color"> #3683ae </color>
     <color name="Main">#45e8bd</color>
     <color name="colorPrimary">#1E1E2C</color>
     <color name="colorPrimaryDark">#232330</color>
