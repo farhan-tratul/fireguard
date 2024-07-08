@@ -38,7 +38,7 @@ public class NotificationDatabaseHelper extends SQLiteOpenHelper {
         values.put("title", Title);
         values.put("message", Msg);
         values.put("timestamp", time);
-        db.insert("history", null, values);
+        db.insert("notifications", null, values);
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {

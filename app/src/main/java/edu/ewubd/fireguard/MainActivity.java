@@ -1,25 +1,26 @@
 package edu.ewubd.fireguard;
 
 
-
-
-
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 
+import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.WindowManager;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.firestore.DocumentChange;
@@ -55,29 +56,31 @@ public class MainActivity extends AppCompatActivity {
     private static final int NAVIGATION_HOME = R.id.navigation_home;
     private static final int NAVIGATION_DASHBOARD = R.id.navigation_dashboard;
     private static final int NAVIGATION_NOTIFICATION = R.id.navigation_notifications;
+    public MediaPlayer mp;
+    @SuppressLint("SuspiciousIndentation")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        bottomNavigationView  = findViewById(R.id.bottom_navigation);
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
         NotificationDatabaseHelper dbHelper = new NotificationDatabaseHelper(this);
         String timestamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date());
-
-        getSupportFragmentManager().beginTransaction().replace(R.id.container,homeFragment).commit();
+        mp = MediaPlayer.create(MainActivity.this, R.raw.voice);
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, homeFragment).commit();
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
-                switch (item.getItemId()){
+                switch (item.getItemId()) {
                     case NAVIGATION_HOME:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.container,homeFragment).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.container, homeFragment).commit();
                         return true;
                     case NAVIGATION_DASHBOARD:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.container,DashboardFragment).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.container, DashboardFragment).commit();
                         return true;
                     case NAVIGATION_NOTIFICATION:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.container,notificationFragment).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.container, notificationFragment).commit();
                         return true;
                 }
 
@@ -87,33 +90,66 @@ public class MainActivity extends AppCompatActivity {
 
 
         db = FirebaseFirestore.getInstance();
-            db.collection("Notification_Alert")
-                    .addSnapshotListener(new EventListener<QuerySnapshot>() {
-                        @Override
-                        public void onEvent(@NonNull QuerySnapshot snapshots, @NonNull FirebaseFirestoreException e) {
-                            if (e != null) {
-                                Log.w(TAG, "Listen failed.", e);
-                                return;
-                            }
-                            createNotificationChannel();
-                            for (DocumentChange dc : snapshots.getDocumentChanges()) {
-                                String title = getString(R.string.notification_title);
-                                String message = getString(R.string.notification_message);
-                                switch (dc.getType()) {
+        db.collection("gas_notify_Alert")
+                .addSnapshotListener(new EventListener<QuerySnapshot>() {
+                    @Override
+                    public void onEvent(@NonNull QuerySnapshot snapshots, @NonNull FirebaseFirestoreException e) {
+                        if (e != null) {
+                            Log.w(TAG, "Listen failed.", e);
+                            return;
+                        }
+                        createNotificationChannel();
+                        for (DocumentChange dc : snapshots.getDocumentChanges()) {
 
-                                    case MODIFIED:
-                                        Log.d(TAG, "Modified document: " + dc.getDocument().getData());
-                                        showNotification("Alert!", "gas leak");
+                            switch (dc.getType()) {
 
-                                        dbHelper.insertstatus("gas","gas is leaking",timestamp);
+                                case MODIFIED:
+                                    Log.d(TAG, "Modified document: " + dc.getDocument().getData());
 
-                                        break;
 
-                                }
+                                        showNotification("Alert!", "Gas Leaking");
+
+                                       dbHelper.insertstatus("Fire", "Fire is occouring", timestamp);
+                                        Log.d("database", "inserted");
+
+
+
+                                    break;
+
                             }
                         }
-                    });
+                    }
+                });
+        db.collection("Fire_notify_Alert")
+                .addSnapshotListener(new EventListener<QuerySnapshot>() {
+                    @Override
+                    public void onEvent(@NonNull QuerySnapshot snapshots, @NonNull FirebaseFirestoreException e) {
+                        if (e != null) {
+                            Log.w(TAG, "Listen failed.", e);
+                            return;
+                        }
+                        createNotificationChannel();
+                        for (DocumentChange dc : snapshots.getDocumentChanges()) {
 
+                            switch (dc.getType()) {
+
+                                case MODIFIED:
+                                    Log.d(TAG, "Modified document: " + dc.getDocument().getData());
+
+
+                                    showNotification("Alert!", "Fire occurring");
+                                    playSound();
+                                    dbHelper.insertstatus("Fire", "Fire is occouring", timestamp);
+                                    Log.d("database", "inserted");
+
+
+
+                                    break;
+
+                            }
+                        }
+                    }
+                });
 
 
 
@@ -135,7 +171,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void showNotification(String title, String message) {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
-                .setSmallIcon(R.drawable.alert)
+                .setSmallIcon(R.drawable.warning)
                 .setContentTitle(title)
                 .setContentText(message)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
@@ -154,5 +190,17 @@ public class MainActivity extends AppCompatActivity {
         }
         notificationManager.notify(1, builder.build());
     }
+    private void playSound() {
+        if (!mp.isPlaying()) {
+            mp.start();
+        }
 
+        mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mp) {
+                // Music has finished playing, stop the service
+
+            }
+        });
+    }
 }
