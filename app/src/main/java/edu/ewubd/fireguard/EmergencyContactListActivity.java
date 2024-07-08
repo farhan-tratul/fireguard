@@ -21,7 +21,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class EmergencyContactListActivity extends AppCompatActivity {
     private ListView contactListView;
     private String[] contactNames = {"Contact 1", "Contact 2", "Contact 3"};
-    private String[] contactNumbers = {"1234567890", "0987654321", "1122334455"};
+    private String[] contactNumbers = {"01783814409", "0987654321", "1122334455"};
     private LinearLayout mainLayout;
 
     @Override
