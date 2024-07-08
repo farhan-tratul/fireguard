@@ -3,14 +3,17 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="8dp"
+    android:background="@color/background_3">
 
     <TextView
         android:id="@+id/notification_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Title"
-        android:textSize="18sp"
+        android:layout_gravity="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
         android:textColor="@color/dark_3" />
 
     <TextView
@@ -18,7 +21,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Message"
+        android:layout_gravity="center"
         android:textSize="16sp"
+        android:textStyle="bold"
         android:textColor="@color/dark_3"
         android:layout_marginTop="4dp" />
 
@@ -27,7 +32,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Timestamp"
+        android:layout_gravity="center"
         android:textSize="14sp"
+        android:textStyle="bold"
         android:textColor="@color/dark_3"
         android:layout_marginTop="4dp" />
 </LinearLayout>
