@@ -61,7 +61,10 @@ public class NotificationsFragment extends Fragment {
     }
 
     private void fetchNotificationsFromDatabase() {
+
         SQLiteDatabase db = dbHelper.getReadableDatabase();
+        //first delete old data if exist
+        dbHelper.deleteOldRecords();
         String selectQuery = "SELECT * FROM " + TABLE_NOTIFICATIONS;
         Cursor cursor = db.rawQuery(selectQuery, null);
         if (cursor.moveToFirst()) {
@@ -73,6 +76,7 @@ public class NotificationsFragment extends Fragment {
 
                 Log.d("databse_status: ",notification.getTitle());
                 notificationList.add(notification);
+
             } while (cursor.moveToNext());
         }
         cursor.close();

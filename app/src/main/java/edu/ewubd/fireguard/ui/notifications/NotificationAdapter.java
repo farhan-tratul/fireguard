@@ -41,6 +41,11 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
         return notificationList.size();
     }
 
+    public void updateData(List<Notification> newNotifications) {
+        this.notificationList = newNotifications;
+        notifyDataSetChanged();
+    }
+
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         public TextView title;

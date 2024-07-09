@@ -2,8 +2,18 @@ package edu.ewubd.fireguard.ui;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
+import java.util.Locale;
+
+import edu.ewubd.fireguard.ui.notifications.Notification;
 
 public class NotificationDatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "notifications.db";
@@ -14,6 +24,7 @@ public class NotificationDatabaseHelper extends SQLiteOpenHelper {
     public static final String COLUMN_TITLE = "title";
     public static final String COLUMN_MESSAGE = "message";
     public static final String COLUMN_TIMESTAMP = "timestamp";
+
 
     private static final String TABLE_CREATE =
             "CREATE TABLE " + TABLE_NOTIFICATIONS + " (" +
@@ -45,4 +56,38 @@ public class NotificationDatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NOTIFICATIONS);
         onCreate(db);
     }
+    public void deleteOldRecords() {
+        SQLiteDatabase db = getWritableDatabase();
+
+        // Get the current date in the same format as your timestamp
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        String today = dateFormat.format(Calendar.getInstance().getTime());
+
+        // Delete records where the timestamp is before today
+        String whereClause = COLUMN_TIMESTAMP + " < ?";
+        String[] whereArgs = { today };
+
+        int rowsDeleted = db.delete(TABLE_NOTIFICATIONS, whereClause, whereArgs);
+
+        Log.d("DatabaseUtils", "Rows deleted: " + rowsDeleted);
+    }
+    public List<Notification> getAllNotifications() {
+        List<Notification> notifications = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        String selectQuery = "SELECT * FROM " + TABLE_NOTIFICATIONS;
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        if (cursor != null && cursor.moveToFirst()) {
+            do {
+                Notification notification = new Notification(cursor.getString(cursor.getColumnIndexOrThrow(NotificationDatabaseHelper.COLUMN_TITLE)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(NotificationDatabaseHelper.COLUMN_MESSAGE)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(NotificationDatabaseHelper.COLUMN_TIMESTAMP)));
+
+                notifications.add(notification);
+            } while (cursor.moveToNext());
+            cursor.close();
+        }
+
+        return notifications;
+    }
+
 }

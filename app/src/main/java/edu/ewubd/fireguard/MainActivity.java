@@ -1,11 +1,13 @@
 package edu.ewubd.fireguard;
 
 
+import static java.security.AccessController.getContext;
+
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
-import android.content.SharedPreferences;
+
 import android.content.pm.PackageManager;
 
 import android.media.MediaPlayer;
@@ -13,13 +15,14 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.WindowManager;
+
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
+
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -31,23 +34,27 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import edu.ewubd.fireguard.databinding.ActivityMainBinding;
 import edu.ewubd.fireguard.ui.NotificationDatabaseHelper;
 import edu.ewubd.fireguard.ui.dashboard.DashboardFragment;
 import edu.ewubd.fireguard.ui.home.HomeFragment;
+import edu.ewubd.fireguard.ui.notifications.Notification;
+import edu.ewubd.fireguard.ui.notifications.NotificationAdapter;
 import edu.ewubd.fireguard.ui.notifications.NotificationsFragment;
 
 
 public class MainActivity extends AppCompatActivity {
-    private WindowManager windowManager;
+
     private ActivityMainBinding binding;
     private static final String TAG = "MainActivity";
     private FirebaseFirestore db;
-
+    private NotificationAdapter adapter;
     private static final String CHANNEL_ID = "fireguard_notification_channel";
     BottomNavigationView bottomNavigationView;
+
 
     HomeFragment homeFragment = new HomeFragment();
     DashboardFragment DashboardFragment = new DashboardFragment();
@@ -69,6 +76,9 @@ public class MainActivity extends AppCompatActivity {
         String timestamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date());
         mp = MediaPlayer.create(MainActivity.this, R.raw.voice);
         getSupportFragmentManager().beginTransaction().replace(R.id.container, homeFragment).commit();
+
+
+
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
@@ -109,7 +119,8 @@ public class MainActivity extends AppCompatActivity {
 
                                         showNotification("Alert!", "Gas Leaking");
 
-                                       dbHelper.insertstatus("Fire", "Fire is occouring", timestamp);
+                                       dbHelper.insertstatus("Gas", "Gas Leaking", timestamp);
+
                                         Log.d("database", "inserted");
 
 
