@@ -49,11 +49,11 @@
         app:layout_constraintTop_toBottomOf="@id/topText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="Today's reports:"
+        android:text="Today's Reports:"
         android:textStyle="bold"
         android:textColor="#EDF0F2"
         android:layout_margin="16dp"
-        android:textSize="20sp"/>
+        android:textSize="25sp"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
