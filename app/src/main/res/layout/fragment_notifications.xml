@@ -30,7 +30,7 @@
         <ImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/gas"
+            android:src="@drawable/gas_16701179"
             android:layout_gravity="right"
             android:layout_marginHorizontal="15dp"
             />
@@ -38,9 +38,8 @@
             android:layout_marginTop="29dp"
             android:layout_width="30dp"
             android:layout_height="27dp"
-            android:src="@drawable/flame"
+            android:src="@drawable/flame_5833848"
             android:layout_gravity="right"/>
-
     </Toolbar>
 
     <TextView
