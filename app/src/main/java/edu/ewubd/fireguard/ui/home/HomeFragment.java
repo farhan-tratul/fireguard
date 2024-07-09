@@ -6,11 +6,13 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -32,11 +34,10 @@ public class HomeFragment extends Fragment
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        // Hide the action bar
-        if (getActivity() != null)
-        {
-            ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
-        }
+        Window window = getActivity().getWindow();
+            window.setStatusBarColor(ContextCompat.getColor(getContext(), R.color.colorAccent));
+
+
 
         //Emergency Card View Button
         CardView emergencyCardView = root.findViewById(R.id.emergencyButton);

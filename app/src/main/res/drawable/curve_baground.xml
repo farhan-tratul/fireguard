@@ -7,7 +7,7 @@
         />
 
     <solid
-        android:color="#3683ae"
+        android:color="@color/colorToolbar"
         />
 
     <!-- Set your desired background color here -->

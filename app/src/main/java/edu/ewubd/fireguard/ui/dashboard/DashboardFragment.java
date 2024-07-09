@@ -7,9 +7,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 
@@ -42,6 +44,9 @@ public class DashboardFragment extends Fragment {
         super.onCreate(savedInstanceState);
         binding = FragmentDashboardBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+
+        Window window = getActivity().getWindow();
+        window.setStatusBarColor(ContextCompat.getColor(getContext(), R.color.colorToolbar));
 
         humidityProgress = root.findViewById(R.id.Donut_Humidity_Progress);
         gasProgress = root.findViewById(R.id.Donut_Gas_Progress);

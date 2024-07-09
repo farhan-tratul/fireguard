@@ -10,6 +10,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.annotation.NonNull;
@@ -42,6 +45,9 @@ public class NotificationsFragment extends Fragment {
         binding = FragmentNotificationsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        Window window = getActivity().getWindow();
+        window.setStatusBarColor(ContextCompat.getColor(getContext(), R.color.colorToolbar));
+
         recyclerView = root.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -54,9 +60,7 @@ public class NotificationsFragment extends Fragment {
         recyclerView.setAdapter(adapter);
 
         // Hide the action bar
-        if (getActivity() != null) {
-            ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
-        }
+
         return root;
     }
 

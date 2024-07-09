@@ -79,7 +79,7 @@
             app:neumorph_shadowColorDark="@android:color/transparent"
             app:neumorph_shadowColorLight="@android:color/transparent"
             app:neumorph_shadowElevation="0dp"
-
+            android:layout_weight="1"
             >
 
 
@@ -117,6 +117,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
             android:layout_marginEnd="25dp"
+            android:layout_weight="1"
             app:neumorph_backgroundColor="#063970"
             app:neumorph_shadowColorDark="@android:color/transparent"
             app:neumorph_shadowColorLight="@android:color/transparent"
@@ -153,6 +154,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
+            android:layout_weight="1"
             android:layout_marginEnd="25dp"
             app:neumorph_backgroundColor="#063970"
             app:neumorph_shadowColorDark="@android:color/transparent"
@@ -175,7 +177,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
                 android:layout_marginTop="100dp"
-                android:layout_marginBottom="6dp"
+                android:layout_marginBottom="10dp"
                 android:gravity="center_horizontal"
                 android:text="Carbon Monoxide level"
                 android:textColor="#FFFFE0"
