@@ -25,6 +25,7 @@
             android:textColor="@color/white"
             android:textSize="30sp"
             android:textStyle="bold"
+            android:fontFamily="@font/oswaldbold"
 
             />
         <ImageView
@@ -50,6 +51,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:text="Today's Reports:"
+        android:fontFamily="@font/oswaldsemibold"
         android:textStyle="bold"
         android:textColor="#EDF0F2"
         android:layout_margin="16dp"

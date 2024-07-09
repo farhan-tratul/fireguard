@@ -5,10 +5,11 @@
         android:topLeftRadius="0dp"
         android:topRightRadius="0dp"
         />
+    <gradient
+        android:startColor="#3683ae"
+        android:endColor="#a1cce4"
+        android:angle="45"/>
 
-    <solid
-        android:color="@color/colorToolbar"
-        />
 
     <!-- Set your desired background color here -->
 
