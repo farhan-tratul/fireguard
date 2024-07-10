@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.ScrollView;
 import android.widget.Toast;
 
+import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -32,6 +33,7 @@ public class SafetyGuideActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_safety_guide);
 
+        EdgeToEdge.enable(this);
         // Correct reference to ScrollView
         scrollView = findViewById(R.id.scrollView); // Make sure this ID matches the ScrollView in your XML
         downloadButton = findViewById(R.id.downloadButton);

@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="#5eb5c8">
 
     <EditText
         android:id="@+id/contactNameInput"
@@ -32,13 +33,14 @@
             android:layout_height="50dp"
             android:layout_weight="1"
             android:text="Save"
-
+            android:backgroundTint="#042e6b"
             android:layout_marginRight="100dp"/>
 
         <Button
             android:id="@+id/cancelContactButton"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
+            android:backgroundTint="#042e6b"
             android:layout_weight="1"
             android:text="cancel" />
     </LinearLayout>

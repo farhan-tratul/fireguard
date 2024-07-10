@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mainSafetyGuide"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SafetyGuideActivity">
+    tools:context=".SafetyGuideActivity"
+    android:background="#5eb5c8">
 
     <!-- Title TextView at the top -->
     <TextView
@@ -15,24 +15,26 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:text="Safety Guide"
+        android:fontFamily="@font/oswaldbold"
+        android:textColor="#FFFFFF"
+        android:textSize="40sp"
         android:gravity="center"
-        android:textSize="24sp"
         android:textStyle="bold"
         android:padding="16dp"/>
 
-    <!-- ScrollView to contain the tips, positioned below the title and above the button -->
+    <!-- ScrollView to contain the tips -->
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/titleTextView"
-        android:layout_above="@id/downloadButton"
         android:padding="16dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_margin="20dp">
 
             <!-- Kitchen Safety Tips Section -->
             <TextView
@@ -40,19 +42,25 @@
                 android:layout_height="wrap_content"
                 android:text="Kitchen Safety Tips"
                 android:textSize="20sp"
-                android:textStyle="bold"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp" />
+                android:fontFamily="@font/oswaldbold"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/oswaldbold"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
                 android:text="1. Keep your cooking area clean and free of grease buildup."
                 android:layout_marginBottom="8dp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/oswaldbold"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
                 android:text="2. Never leave cooking unattended."
                 android:layout_marginBottom="8dp" />
 
@@ -61,6 +69,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Fire Safety Tips"
+                android:fontFamily="@font/oswaldbold"
+                android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:layout_marginTop="20dp"
@@ -70,12 +80,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="1. Install and maintain smoke alarms."
+                android:fontFamily="@font/oswaldbold"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
                 android:layout_marginBottom="8dp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="2. Know how to use a fire extinguisher."
+                android:fontFamily="@font/oswaldbold"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
                 android:layout_marginBottom="8dp" />
 
             <!-- Gas Leak Prevention Tips Section -->
@@ -83,6 +99,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Gas Leak Prevention"
+                android:fontFamily="@font/oswaldbold"
+                android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:layout_marginTop="20dp"
@@ -92,6 +110,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="1. Regularly check for gas leaks."
+                android:fontFamily="@font/oswaldbold"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
                 android:layout_marginBottom="8dp" />
 
             <!-- Smoke Safety Tips Section -->
@@ -99,6 +120,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Smoke Safety Tips"
+                android:fontFamily="@font/oswaldbold"
+                android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:layout_marginTop="20dp"
@@ -108,20 +131,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="1. Ensure proper ventilation throughout the home."
+                android:fontFamily="@font/oswaldbold"
+                android:textColor="#FFFFFF"
                 android:layout_marginBottom="8dp" />
 
             <!-- More tips can be added here -->
 
+            <!-- Download PDF Button at the bottom of ScrollView -->
+            <Button
+                android:id="@+id/downloadButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Download PDF"
+                android:backgroundTint="#042e6b"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="32dp" />
+
         </LinearLayout>
     </ScrollView>
 
-    <!-- Download PDF Button at the bottom -->
-    <Button
-        android:id="@+id/downloadButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Download PDF"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="16dp" />
 </RelativeLayout>

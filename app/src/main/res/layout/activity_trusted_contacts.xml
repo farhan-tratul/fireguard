@@ -7,38 +7,32 @@
     android:id="@+id/mainTrustedContacts"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TrustedContactsActivity">
+    tools:context=".TrustedContactsActivity"
+    android:background="#5eb5c8">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Trusted Contacts Page"
-        android:textSize="24sp"
-        android:layout_margin="16dp"
+        android:text="Trusted Contacts"
+        android:fontFamily="@font/oswaldbold"
+        android:textColor="#FFFFFF"
+        android:textSize="40sp"
         android:gravity="center"
         />
-
-
-
-
-
     <ListView
         android:id="@+id/contactListView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/textView"
-        android:layout_marginTop="20dp"
         android:padding="16dp" >
-
-
     </ListView>
 
     <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-       android:layout_alignParentRight="true"
+        android:layout_alignParentRight="true"
         android:layout_marginRight="50dp"
         android:layout_marginBottom="50dp"
        >
@@ -46,7 +40,7 @@
             android:id="@+id/addContactButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-          android:outlineSpotShadowColor="@color/white"
+            android:outlineSpotShadowColor="@color/white"
             android:layout_marginTop="20dp"
             android:src="@android:drawable/ic_input_add" />
     </FrameLayout>
