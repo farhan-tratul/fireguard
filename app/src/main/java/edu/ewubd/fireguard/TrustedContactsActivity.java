@@ -4,6 +4,9 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteStatement;
 import android.net.Uri;
 import android.os.Bundle;
 import android.telephony.SmsManager;
@@ -20,9 +23,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -31,8 +32,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import edu.ewubd.fireguard.databinding.FragmentHomeBinding;
+import java.util.regex.Pattern;
 
 public class TrustedContactsActivity extends AppCompatActivity {
 
@@ -40,31 +40,33 @@ public class TrustedContactsActivity extends AppCompatActivity {
     private FloatingActionButton addContactButton;
     private ContactAdapter contactAdapter;
     private List<Contact> contactList;
+    private ContactDatabaseHelper dbHelper;
+    private SQLiteDatabase database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trusted_contacts);
-        EdgeToEdge.enable(this);
 
         contactListView = findViewById(R.id.contactListView);
         addContactButton = findViewById(R.id.addContactButton);
+
+        dbHelper = new ContactDatabaseHelper(this);
+        database = dbHelper.getWritableDatabase();
 
         contactList = new ArrayList<>();
         contactAdapter = new ContactAdapter(this, contactList);
         contactListView.setAdapter(contactAdapter);
 
+        loadContactsFromDatabase();
+
         addContactButton.setOnClickListener(v -> showAddContactDialog());
-
-
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.mainTrustedContacts), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
-
     }
 
     private void showAddContactDialog() {
@@ -81,16 +83,54 @@ public class TrustedContactsActivity extends AppCompatActivity {
         saveContactButton.setOnClickListener(v -> {
             String name = contactNameInput.getText().toString();
             String number = contactNumberInput.getText().toString();
-            if (!name.isEmpty() && !number.isEmpty()) {
-                contactList.add(new Contact(name, number));
+            if (isValidName(name) && isValidBDPhoneNumber(number)) {
+                saveContactToDatabase(name, number);
+                loadContactsFromDatabase();
                 contactAdapter.notifyDataSetChanged();
                 dialog.dismiss();
             } else {
-                Toast.makeText(this, "Please enter both name and number", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Please enter valid name and phone number", Toast.LENGTH_SHORT).show();
             }
         });
 
         dialog.show();
+    }
+
+    private boolean isValidName(String name) {
+        return Pattern.matches("^[a-zA-Z\\s]+$", name);
+    }
+
+    private boolean isValidBDPhoneNumber(String number) {
+        return Pattern.matches("^(?:\\+88|88)?(01[3-9]\\d{8})$", number);
+    }
+
+    private void saveContactToDatabase(String name, String number) {
+        String sql = "INSERT INTO " + ContactDatabaseHelper.TABLE_CONTACTS + " (" + ContactDatabaseHelper.COLUMN_NAME + ", " + ContactDatabaseHelper.COLUMN_NUMBER + ") VALUES (?, ?)";
+        SQLiteStatement statement = database.compileStatement(sql);
+        statement.bindString(1, name);
+        statement.bindString(2, number);
+        statement.executeInsert();
+    }
+
+    private void loadContactsFromDatabase() {
+        contactList.clear();
+        Cursor cursor = database.query(ContactDatabaseHelper.TABLE_CONTACTS, null, null, null, null, null, null);
+        if (cursor != null) {
+            int nameIndex = cursor.getColumnIndex(ContactDatabaseHelper.COLUMN_NAME);
+            int numberIndex = cursor.getColumnIndex(ContactDatabaseHelper.COLUMN_NUMBER);
+
+            if (nameIndex >= 0 && numberIndex >= 0) {
+                while (cursor.moveToNext()) {
+                    String name = cursor.getString(nameIndex);
+                    String number = cursor.getString(numberIndex);
+                    contactList.add(new Contact(name, number));
+                }
+            } else {
+                Toast.makeText(this, "Error: Columns not found in database", Toast.LENGTH_SHORT).show();
+            }
+
+            cursor.close();
+        }
     }
 
     private class ContactAdapter extends BaseAdapter {
