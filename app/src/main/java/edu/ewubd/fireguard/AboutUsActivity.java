@@ -13,6 +13,8 @@ public class AboutUsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //top color change
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_about_us);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.mainAboutUs), (v, insets) -> {

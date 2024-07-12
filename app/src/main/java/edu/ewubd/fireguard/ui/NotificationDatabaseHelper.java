@@ -17,7 +17,7 @@ import edu.ewubd.fireguard.ui.notifications.Notification;
 
 public class NotificationDatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "notifications.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     public static final String TABLE_NOTIFICATIONS = "notifications";
     public static final String COLUMN_ID = "_id";
@@ -26,6 +26,12 @@ public class NotificationDatabaseHelper extends SQLiteOpenHelper {
     public static final String COLUMN_TIMESTAMP = "timestamp";
 
 
+    // Contacts Table
+    public static final String TABLE_CONTACTS = "contacts";
+    public static final String COLUMN_CONTACT_ID = "_id";
+    public static final String COLUMN_NAME = "name";
+    public static final String COLUMN_NUMBER = "number";
+
     private static final String TABLE_CREATE =
             "CREATE TABLE " + TABLE_NOTIFICATIONS + " (" +
                     COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -33,6 +39,12 @@ public class NotificationDatabaseHelper extends SQLiteOpenHelper {
                     COLUMN_MESSAGE + " TEXT, " +
                     COLUMN_TIMESTAMP + " TEXT" +
                     ");";
+    // Create Contacts Table
+    private static final String TABLE_CONTACTS_CREATE =
+            "CREATE TABLE " + TABLE_CONTACTS + " (" +
+                    COLUMN_CONTACT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    COLUMN_NAME + " TEXT, " +
+                    COLUMN_NUMBER + " TEXT);";
 
     public NotificationDatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -41,6 +53,7 @@ public class NotificationDatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(TABLE_CREATE);
+        db.execSQL(TABLE_CONTACTS_CREATE);
     }
 
     public void insertstatus(String Title, String Msg, String time) {
@@ -54,7 +67,16 @@ public class NotificationDatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NOTIFICATIONS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_CONTACTS);
         onCreate(db);
+    }
+    // Insert contact
+    public void insertContact(String name, String number) {
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_NAME, name);
+        values.put(COLUMN_NUMBER, number);
+        db.insert(TABLE_CONTACTS, null, values);
     }
     public void deleteOldRecords() {
         SQLiteDatabase db = getWritableDatabase();
@@ -88,6 +110,24 @@ public class NotificationDatabaseHelper extends SQLiteOpenHelper {
         }
 
         return notifications;
+    }
+
+    // Get all contacts
+    public List<String> getAllContacts() {
+        List<String> contacts = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        String selectQuery = "SELECT * FROM " + TABLE_CONTACTS;
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        if (cursor != null && cursor.moveToFirst()) {
+            do {
+                String contact = "Name: " + cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_NAME)) +
+                        ", Number: " + cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_NUMBER));
+                contacts.add(contact);
+            } while (cursor.moveToNext());
+            cursor.close();
+        }
+
+        return contacts;
     }
 
 }

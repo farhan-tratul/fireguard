@@ -14,13 +14,15 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 import java.util.regex.Pattern;
 
+import edu.ewubd.fireguard.ui.NotificationDatabaseHelper;
+
 public class AddContactBottomSheet extends BottomSheetDialogFragment {
 
     private EditText contactNameInput;
     private EditText contactNumberInput;
     private Button saveContactButton;
     private Button cancelContactButton;
-    private ContactDatabaseHelper dbHelper;
+    private NotificationDatabaseHelper dbHelper;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -30,7 +32,7 @@ public class AddContactBottomSheet extends BottomSheetDialogFragment {
         contactNumberInput = view.findViewById(R.id.contactNumberInput);
         saveContactButton = view.findViewById(R.id.saveContactButton);
         cancelContactButton = view.findViewById(R.id.cancelContactButton);
-        dbHelper = new ContactDatabaseHelper(getContext());
+        dbHelper = new NotificationDatabaseHelper(getContext());
 
         cancelContactButton.setOnClickListener(v -> dismiss());
         saveContactButton.setOnClickListener(v -> {
@@ -58,7 +60,7 @@ public class AddContactBottomSheet extends BottomSheetDialogFragment {
 
     private void saveContactToDatabase(String name, String number) {
         SQLiteDatabase database = dbHelper.getWritableDatabase();
-        String sql = "INSERT INTO " + ContactDatabaseHelper.TABLE_CONTACTS + " (" + ContactDatabaseHelper.COLUMN_NAME + ", " + ContactDatabaseHelper.COLUMN_NUMBER + ") VALUES (?, ?)";
+        String sql = "INSERT INTO " + NotificationDatabaseHelper.TABLE_CONTACTS + " (" + NotificationDatabaseHelper.COLUMN_NAME + ", " + NotificationDatabaseHelper.COLUMN_NUMBER + ") VALUES (?, ?)";
         SQLiteStatement statement = database.compileStatement(sql);
         statement.bindString(1, name);
         statement.bindString(2, number);

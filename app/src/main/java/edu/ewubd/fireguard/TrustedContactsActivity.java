@@ -23,6 +23,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -34,13 +35,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
+import edu.ewubd.fireguard.ui.NotificationDatabaseHelper;
+
 public class TrustedContactsActivity extends AppCompatActivity {
 
     private ListView contactListView;
     private FloatingActionButton addContactButton;
     private ContactAdapter contactAdapter;
     private List<Contact> contactList;
-    private ContactDatabaseHelper dbHelper;
+    private NotificationDatabaseHelper dbHelper;  // UPDATED LINE
     private SQLiteDatabase database;
 
     @Override
@@ -51,12 +54,15 @@ public class TrustedContactsActivity extends AppCompatActivity {
         contactListView = findViewById(R.id.contactListView);
         addContactButton = findViewById(R.id.addContactButton);
 
-        dbHelper = new ContactDatabaseHelper(this);
+        dbHelper = new NotificationDatabaseHelper(this);
         database = dbHelper.getWritableDatabase();
 
         contactList = new ArrayList<>();
         contactAdapter = new ContactAdapter(this, contactList);
         contactListView.setAdapter(contactAdapter);
+
+        //top color match
+        EdgeToEdge.enable(this);
 
         loadContactsFromDatabase();
 
@@ -105,7 +111,7 @@ public class TrustedContactsActivity extends AppCompatActivity {
     }
 
     private void saveContactToDatabase(String name, String number) {
-        String sql = "INSERT INTO " + ContactDatabaseHelper.TABLE_CONTACTS + " (" + ContactDatabaseHelper.COLUMN_NAME + ", " + ContactDatabaseHelper.COLUMN_NUMBER + ") VALUES (?, ?)";
+        String sql = "INSERT INTO " + NotificationDatabaseHelper.TABLE_CONTACTS + " (" + NotificationDatabaseHelper.COLUMN_NAME + ", " + NotificationDatabaseHelper.COLUMN_NUMBER + ") VALUES (?, ?)";  // UPDATED LINE
         SQLiteStatement statement = database.compileStatement(sql);
         statement.bindString(1, name);
         statement.bindString(2, number);
@@ -114,10 +120,10 @@ public class TrustedContactsActivity extends AppCompatActivity {
 
     private void loadContactsFromDatabase() {
         contactList.clear();
-        Cursor cursor = database.query(ContactDatabaseHelper.TABLE_CONTACTS, null, null, null, null, null, null);
+        Cursor cursor = database.query(NotificationDatabaseHelper.TABLE_CONTACTS, null, null, null, null, null, null);  // UPDATED LINE
         if (cursor != null) {
-            int nameIndex = cursor.getColumnIndex(ContactDatabaseHelper.COLUMN_NAME);
-            int numberIndex = cursor.getColumnIndex(ContactDatabaseHelper.COLUMN_NUMBER);
+            int nameIndex = cursor.getColumnIndex(NotificationDatabaseHelper.COLUMN_NAME);  // UPDATED LINE
+            int numberIndex = cursor.getColumnIndex(NotificationDatabaseHelper.COLUMN_NUMBER);  // UPDATED LINE
 
             if (nameIndex >= 0 && numberIndex >= 0) {
                 while (cursor.moveToNext()) {
