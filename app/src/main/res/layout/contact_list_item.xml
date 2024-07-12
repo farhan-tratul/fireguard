@@ -1,103 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/mainContactListItem"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:paddingHorizontal="10dp"
-    android:paddingVertical="8dp">
+    android:id="@+id/mainContactListItem"
+    android:orientation="horizontal"
+    android:padding="16dp"
+    android:gravity="center_vertical"
+    android:background="?android:attr/selectableItemBackground">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
+    <ImageView
+        android:id="@+id/contactAvatar"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_avatar_placeholder"
+        android:scaleType="centerCrop"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/avatar_circle_bg" />
 
-        <TextView
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:gravity="center"
-            android:layout_marginTop="5dp"
-            android:background="@drawable/item_bg_text"
-            android:text="C"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            android:fontFamily="@font/oswaldregular"
-            android:textStyle="bold" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:orientation="horizontal"
-            android:background="@drawable/all_round"
-            android:paddingHorizontal="20dp"
-            android:layout_marginLeft="10dp">
-
-            <TextView
-                android:id="@+id/contactName"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:layout_gravity="center_vertical"
-                android:text="Contact Name"
-                android:textSize="15sp"
-                android:fontFamily="@font/oswaldregular"
-                android:textStyle="bold"
-                android:textColor="@color/dark_3" />
-
-            <TextView
-                android:id="@+id/notification_message"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_gravity="center_vertical"
-                android:text="Person Details"
-                android:textSize="15sp"
-                android:fontFamily="@font/oswaldregular"
-                android:textColor="@color/dark_3" />
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/contactName"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="8dp">
+        android:layout_weight="1"
+        android:text="Contact Name"
+        android:textSize="16sp"
+        android:textColor="@color/dark_3"
+        android:fontFamily="@font/oswaldregular" />
 
-        <Button
-            android:id="@+id/callButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
-            android:backgroundTint="#042e6b"
-            android:text="Call"
-            android:textColor="@color/white"
-            android:textSize="14sp"
-            android:padding="10dp"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+    <ImageView
+        android:id="@+id/infoButton"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_info"
+        android:contentDescription="@string/info_icon" />
 
-        <Button
-            android:id="@+id/sosButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
-            android:backgroundTint="#042e6b"
-            android:text="Send SOS"
-            android:textColor="@color/white"
-            android:textSize="14sp"
-            android:padding="10dp"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+    <ImageView
+        android:id="@+id/callButton"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_call"
+        android:contentDescription="@string/call_icon" />
 
-        <Button
-            android:id="@+id/infoButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#042e6b"
-            android:text="Info"
-            android:textColor="@color/white"
-            android:textSize="14sp"
-            android:padding="10dp"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
-    </LinearLayout>
+    <ImageView
+        android:id="@+id/sosButton"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ic_sos"
+        android:contentDescription="@string/sos_icon" />
+
+    <ImageView
+        android:id="@+id/editIcon"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="16dp"
+        android:src="@drawable/ic_edit"
+        android:contentDescription="@string/edit_icon" />
 </LinearLayout>

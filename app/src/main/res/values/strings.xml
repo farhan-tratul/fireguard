@@ -8,5 +8,10 @@
     <string name="notification_title">Alert!</string>
     <string name="notification_message">Gas leaked</string>
     <!-- Other string resources -->
+
+    <string name="info_icon">Info</string>
+    <string name="call_icon">Call</string>
+    <string name="sos_icon">Send SOS</string>
+    <string name="edit_icon">Edit/Delete</string>
 </resources>
 

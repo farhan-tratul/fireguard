@@ -17,6 +17,7 @@ import android.view.Window;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -170,9 +171,14 @@ public class TrustedContactsActivity extends AppCompatActivity {
             }
 
             TextView nameTextView = convertView.findViewById(R.id.contactName);
-            Button callButton = convertView.findViewById(R.id.callButton);
-            Button sosButton = convertView.findViewById(R.id.sosButton);
-            Button infoButton = convertView.findViewById(R.id.infoButton);
+            ImageView callButton = convertView.findViewById(R.id.callButton);
+            ImageView sosButton = convertView.findViewById(R.id.sosButton);
+            ImageView infoButton = convertView.findViewById(R.id.infoButton);
+
+
+            //Button callButton = convertView.findViewById(R.id.callButton);
+            //Button sosButton = convertView.findViewById(R.id.sosButton);
+            //Button infoButton = convertView.findViewById(R.id.infoButton);
 
             Contact contact = contacts.get(position);
 
