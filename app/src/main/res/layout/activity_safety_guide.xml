@@ -8,26 +8,37 @@
     tools:context=".SafetyGuideActivity"
     android:background="#5eb5c8">
 
-    <!-- Title TextView at the top -->
-    <TextView
-        android:id="@+id/titleTextView"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/topText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:text="Safety Guide"
-        android:fontFamily="@font/oswaldbold"
-        android:textColor="#FFFFFF"
-        android:textSize="40sp"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:padding="16dp"/>
+        android:background="@color/colorToolbar"
+        >
+        <!-- Title TextView at the top -->
+        <TextView
+            android:id="@+id/titleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:text="Safety Guide"
+            android:fontFamily="@font/oswaldbold"
+            android:textColor="#FFFFFF"
+            android:textSize="40sp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:layout_margin="20dp"
+             />
+
+    </androidx.appcompat.widget.Toolbar >
+
+
 
     <!-- ScrollView to contain the tips -->
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/titleTextView"
+        android:layout_below="@id/topText"
         android:padding="16dp">
 
         <LinearLayout
