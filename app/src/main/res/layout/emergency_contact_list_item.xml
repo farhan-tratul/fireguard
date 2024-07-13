@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/mainEmergencyContactListItem"
+    android:orientation="horizontal"
+    android:padding="16dp"
+    android:gravity="center_vertical"
+    android:background="?android:attr/selectableItemBackground">
+
+    <TextView
+        android:id="@+id/contactName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Emergency Service Name"
+        android:textSize="16sp"
+        android:textColor="@color/dark_3"
+        android:fontFamily="@font/oswaldregular" />
+
+    <ImageView
+        android:id="@+id/infoButton"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_info"
+        android:contentDescription="@string/info_icon" />
+
+    <ImageView
+        android:id="@+id/callButton"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_call"
+        android:contentDescription="@string/call_icon" />
+</LinearLayout>

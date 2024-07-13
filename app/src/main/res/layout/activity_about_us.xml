@@ -45,7 +45,7 @@
             <ImageView
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/notification"
+                android:src="@drawable/member1"
                 android:scaleType="centerCrop"
                 android:layout_marginEnd="16dp" />
 
@@ -106,7 +106,7 @@
             <ImageView
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/firewall"
+                android:src="@drawable/member3"
                 android:scaleType="centerCrop"
                 android:layout_marginEnd="16dp" />
 
@@ -162,7 +162,7 @@
             <ImageView
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/humidity"
+                android:src="@drawable/member4"
                 android:scaleType="centerCrop"
                 android:layout_marginEnd="16dp" />
 
@@ -217,7 +217,7 @@
             <ImageView
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/warning"
+                android:src="@drawable/member2"
                 android:scaleType="centerCrop"
                 android:layout_marginEnd="16dp" />
 

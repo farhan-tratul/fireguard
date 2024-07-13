@@ -1,7 +1,6 @@
 package edu.ewubd.fireguard.ui.home;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,14 +9,12 @@ import android.view.Window;
 
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 
 import edu.ewubd.fireguard.AboutUsActivity;
-import edu.ewubd.fireguard.EmergencyActivity;
+import edu.ewubd.fireguard.EmergencyContactsActivity;
 import edu.ewubd.fireguard.R;
 import edu.ewubd.fireguard.SafetyGuideActivity;
 import edu.ewubd.fireguard.TrustedContactsActivity;
@@ -51,7 +48,7 @@ public class HomeFragment extends Fragment
         //Emergency Button Card View Button
         emergencyCardView.setOnClickListener(v -> {
             // Start EmergencyActivity
-            Intent intent = new Intent(getActivity(), EmergencyActivity.class);
+            Intent intent = new Intent(getActivity(), EmergencyContactsActivity.class);
             startActivity(intent);
         });
 

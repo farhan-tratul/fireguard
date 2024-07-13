@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainEmergencyContacts"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EmergencyContactsActivity"
+    android:background="#5eb5c8">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Emergency Contacts"
+        android:fontFamily="@font/oswaldbold"
+        android:textColor="#FFFFFF"
+        android:textSize="40sp"
+        android:gravity="center"
+        />
+    <ListView
+        android:id="@+id/emergencyContactListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView"
+        android:padding="16dp" >
+    </ListView>
+</RelativeLayout>

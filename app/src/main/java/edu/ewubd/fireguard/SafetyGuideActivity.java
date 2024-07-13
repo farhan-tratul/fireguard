@@ -1,16 +1,21 @@
 package edu.ewubd.fireguard;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.pdf.PdfDocument;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.Settings;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ScrollView;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -25,37 +30,18 @@ import java.io.IOException;
 public class SafetyGuideActivity extends AppCompatActivity {
 
     private static final int PERMISSION_REQUEST_WRITE_EXTERNAL_STORAGE = 1;
-    private ScrollView scrollView; // Correct reference to the ScrollView
-    private Button downloadButton;
+    private static final int PERMISSION_REQUEST_MANAGE_EXTERNAL_STORAGE = 2;
+    private ScrollView scrollView;
+    private LinearLayout contentLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_safety_guide);
 
-        EdgeToEdge.enable(this);
-        // Correct reference to ScrollView
-        scrollView = findViewById(R.id.scrollView); // Make sure this ID matches the ScrollView in your XML
-        downloadButton = findViewById(R.id.downloadButton);
+        scrollView = findViewById(R.id.scrollView);
+        contentLayout = findViewById(R.id.contentLayout);
 
-        downloadButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Check if the WRITE_EXTERNAL_STORAGE permission is granted
-                if (ContextCompat.checkSelfPermission(SafetyGuideActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                        != PackageManager.PERMISSION_GRANTED) {
-                    // If not, request permission
-                    ActivityCompat.requestPermissions(SafetyGuideActivity.this,
-                            new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
-                            PERMISSION_REQUEST_WRITE_EXTERNAL_STORAGE);
-                } else {
-                    // If permission is granted, create the PDF
-                    createPdf();
-                }
-            }
-        });
-
-        // Adjusting window insets for the ScrollView
         ViewCompat.setOnApplyWindowInsetsListener(scrollView, new androidx.core.view.OnApplyWindowInsetsListener() {
             @Override
             public WindowInsetsCompat onApplyWindowInsets(View v, WindowInsetsCompat insets) {
@@ -64,18 +50,17 @@ public class SafetyGuideActivity extends AppCompatActivity {
                 return insets;
             }
         });
+
+        displaySafetyTips();
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        // Handle the result of the permission request
         if (requestCode == PERMISSION_REQUEST_WRITE_EXTERNAL_STORAGE) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                // Permission granted, create the PDF
                 createPdf();
             } else {
-                // Permission denied, show a Toast message
                 Toast.makeText(this, "Permission denied to write to external storage", Toast.LENGTH_SHORT).show();
             }
         }
@@ -85,8 +70,6 @@ public class SafetyGuideActivity extends AppCompatActivity {
         PdfDocument document = new PdfDocument();
         PdfDocument.PageInfo pageInfo = new PdfDocument.PageInfo.Builder(scrollView.getWidth(), scrollView.getHeight(), 1).create();
         PdfDocument.Page page = document.startPage(pageInfo);
-
-        // Draw the content of the ScrollView onto the PDF
         scrollView.draw(page.getCanvas());
         document.finishPage(page);
 
@@ -94,7 +77,6 @@ public class SafetyGuideActivity extends AppCompatActivity {
         File file = new File(directoryPath, "SafetyGuide.pdf");
 
         try {
-            // Write the content of the document to the file system
             document.writeTo(new FileOutputStream(file));
             Toast.makeText(this, "PDF created successfully", Toast.LENGTH_SHORT).show();
         } catch (IOException e) {
@@ -102,7 +84,62 @@ public class SafetyGuideActivity extends AppCompatActivity {
             Toast.makeText(this, "Failed to create PDF", Toast.LENGTH_SHORT).show();
         }
 
-        // Close the document to free up resources
         document.close();
+    }
+
+    private void displaySafetyTips() {
+        addSection("Kitchen Safety Tips", new String[]{
+                "Keep your cooking area clean and free of grease buildup.",
+                "Never leave cooking unattended.",
+                "Use a timer to remind you of cooking times.",
+                "Keep flammable objects away from the stove.",
+                "Wear appropriate clothing to avoid loose clothing catching fire.",
+                "Ensure child safety by keeping children away from the cooking area.",
+                "Check appliances regularly to ensure they are in good working condition."
+        });
+
+        addSection("Fire Safety Tips", new String[]{
+                "Install and maintain smoke alarms. Test alarms monthly and replace batteries annually.",
+                "Know how to use a fire extinguisher. Learn the PASS technique (Pull, Aim, Squeeze, Sweep).",
+                "Plan and practice an escape route. Have a clear escape plan and practice it regularly.",
+                "Keep a fire blanket in the kitchen to smother small fires.",
+                "Never use water on a grease fire. Use a fire extinguisher or cover the pan with a lid.",
+                "Be cautious with candles. Keep candles away from flammable objects and never leave candles unattended."
+        });
+
+        addSection("Gas Leak Prevention Tips", new String[]{
+                "Regularly check for gas leaks. Inspect gas lines and connections for leaks. Use soapy water to check for bubbles on gas lines.",
+                "Install a gas detector near gas appliances.",
+                "Ensure proper ventilation around gas appliances.",
+                "Turn off gas appliances properly. Ensure all knobs and valves are turned off after use.",
+                "Know how to turn off the gas supply. Familiarize yourself with the main gas valve."
+        });
+
+        addSection("Smoke Safety Tips", new String[]{
+                "Ensure proper ventilation throughout the home. Use exhaust fans and open windows to ventilate smoke.",
+                "Install smoke detectors in key areas like the kitchen, hallway, and bedrooms.",
+                "Avoid smoking indoors. Smoke outside to reduce the risk of indoor smoke buildup.",
+                "Check and clean chimneys regularly to ensure they are clear of blockages and debris.",
+                "Use air purifiers to reduce smoke particles.",
+                "Keep emergency numbers handy. Have emergency contact numbers easily accessible."
+        });
+    }
+
+    private void addSection(String title, String[] tips) {
+        TextView titleTextView = new TextView(this);
+        titleTextView.setText(title);
+        titleTextView.setTextSize(20);
+        titleTextView.setTextColor(getResources().getColor(android.R.color.white));
+        titleTextView.setTypeface(titleTextView.getTypeface(), android.graphics.Typeface.BOLD);
+        contentLayout.addView(titleTextView);
+
+        for (String tip : tips) {
+            TextView tipTextView = new TextView(this);
+            tipTextView.setText(tip);
+            tipTextView.setTextSize(15);
+            tipTextView.setTextColor(getResources().getColor(android.R.color.white));
+            tipTextView.setPadding(0, 8, 0, 40);
+            contentLayout.addView(tipTextView);
+        }
     }
 }
