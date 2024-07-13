@@ -38,6 +38,8 @@ public class DashboardFragment extends Fragment {
     private TextView temperatureView;
     private CollectionReference eventRef;
     DocumentReference docRef;
+    private double  Min = 100.0;
+    private double Max = 10000.0;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
@@ -96,7 +98,7 @@ public class DashboardFragment extends Fragment {
                            // humidityProgress.setProgress(humidity.floatValue());
                       }
                       if(gas_value!=null){
-                            double perc = (gas_value * 100) / 4095;
+                            double perc = ((gas_value - Min) / (Max - Min)) * 100.0;
                             double floorValue = Math.ceil(perc);
                             gasProgress.setProgress((float) floorValue);
                       }
