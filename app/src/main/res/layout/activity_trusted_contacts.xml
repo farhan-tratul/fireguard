@@ -9,21 +9,28 @@
     tools:context=".TrustedContactsActivity"
     android:background="#5eb5c8">
 
-    <TextView
-        android:id="@+id/textView"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/topText"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Trusted Contacts"
-        android:fontFamily="@font/oswaldbold"
-        android:textColor="#FFFFFF"
-        android:textSize="40sp"
-        android:gravity="center"
-        />
+        android:layout_height="80dp"
+        android:background="@color/colorToolbar"
+        >
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Trusted Contacts"
+            android:fontFamily="@font/oswaldbold"
+            android:textColor="#FFFFFF"
+            android:textSize="40sp"
+            android:gravity="center"
+            />
+    </androidx.appcompat.widget.Toolbar >
     <ListView
         android:id="@+id/contactListView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/textView"
+        android:layout_below="@+id/topText"
         android:padding="16dp" >
     </ListView>
 
