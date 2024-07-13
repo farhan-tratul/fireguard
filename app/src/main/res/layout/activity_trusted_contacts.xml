@@ -39,7 +39,7 @@
             android:id="@+id/addContactButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:outlineSpotShadowColor="@color/white"
+            android:outlineSpotShadowColor="@android:color/transparent"
             android:layout_marginTop="20dp"
             android:src="@android:drawable/ic_input_add" />
     </FrameLayout>
