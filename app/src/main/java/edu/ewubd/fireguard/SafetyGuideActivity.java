@@ -11,6 +11,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -36,6 +37,9 @@ public class SafetyGuideActivity extends AppCompatActivity {
 
         scrollView = findViewById(R.id.scrollView);
         contentLayout = findViewById(R.id.contentLayout);
+
+        //top color match
+        EdgeToEdge.enable(this);
 
         ViewCompat.setOnApplyWindowInsetsListener(scrollView, new androidx.core.view.OnApplyWindowInsetsListener() {
             @Override

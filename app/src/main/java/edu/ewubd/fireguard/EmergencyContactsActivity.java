@@ -1,10 +1,16 @@
 package edu.ewubd.fireguard;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
-
+import android.view.View;
+import android.view.Window;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import java.util.ArrayList;
 
@@ -20,6 +26,10 @@ public class EmergencyContactsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_emergency_contacts);
 
         emergencyContactListView = findViewById(R.id.emergencyContactListView);
+
+        //top color match
+        Window window = getWindow();
+        window.setStatusBarColor(ContextCompat.getColor(this, R.color.colorToolbar));
 
         // Initialize the list of emergency contacts
         emergencyContacts = new ArrayList<>();

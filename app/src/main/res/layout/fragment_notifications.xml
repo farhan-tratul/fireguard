@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="#5eb5c8">
 
-    <Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/topText"
         android:layout_width="match_parent"
         android:layout_height="80dp"
@@ -41,7 +41,7 @@
             android:layout_height="27dp"
             android:src="@drawable/flame_5833848"
             android:layout_gravity="right"/>
-    </Toolbar>
+    </androidx.appcompat.widget.Toolbar>
 
     <TextView
         android:id="@+id/top_Header"
