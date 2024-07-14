@@ -1,13 +1,8 @@
 package edu.ewubd.fireguard;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.view.View;
 import android.view.Window;
-import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -33,11 +28,13 @@ public class EmergencyContactsActivity extends AppCompatActivity {
 
         // Initialize the list of emergency contacts
         emergencyContacts = new ArrayList<>();
-        emergencyContacts.add(new EmergencyContact("Fire Service", "199"));
-        emergencyContacts.add(new EmergencyContact("Ambulance", "16263"));
-        emergencyContacts.add(new EmergencyContact("Police", "999"));
-        emergencyContacts.add(new EmergencyContact("Emergency Medical", "199"));
-        emergencyContacts.add(new EmergencyContact("Forewarning", "10941"));
+        emergencyContacts.add(new EmergencyContact("Fire Service\t(১৯৯)", "199"));
+        emergencyContacts.add(new EmergencyContact("Ambulance\t(16263)", "16263"));
+        emergencyContacts.add(new EmergencyContact("Police\t(৯৯৯)", "999"));
+        emergencyContacts.add(new EmergencyContact("শিশু সহায়তা\t(১০৯৮)", "1098"));
+        emergencyContacts.add(new EmergencyContact("নারী ও শিশু নির্যাতন\t(১০৯)", "109"));
+        emergencyContacts.add(new EmergencyContact("দুর্যোগের আগাম বার্তা\t(১০৯৪১)", "10941"));
+        emergencyContacts.add(new EmergencyContact("তথ্য সেবা\t(৩৩৩)", "333"));
 
         adapter = new EmergencyContactAdapter(this, emergencyContacts);
         emergencyContactListView.setAdapter(adapter);

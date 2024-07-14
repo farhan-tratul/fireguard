@@ -33,9 +33,10 @@ public class EmergencyContactAdapter extends ArrayAdapter<EmergencyContact> {
 
         contactName.setText(contact.getName());
 
+        // Highlighted code
         infoButton.setOnClickListener(v -> {
             // Handle info button click
-            Toast.makeText(getContext(), "Info: " + contact.getName(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Contact Number: " + contact.getPhoneNumber(), Toast.LENGTH_SHORT).show();
         });
 
         callButton.setOnClickListener(v -> {

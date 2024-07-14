@@ -16,7 +16,8 @@
         android:layout_weight="1"
         android:text="Emergency Service Name"
         android:textSize="16sp"
-        android:textColor="@color/dark_3"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         android:fontFamily="@font/oswaldregular" />
 
     <ImageView
@@ -29,8 +30,8 @@
 
     <ImageView
         android:id="@+id/callButton"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
         android:layout_marginEnd="16dp"
         android:src="@drawable/ic_call"
         android:contentDescription="@string/call_icon" />
