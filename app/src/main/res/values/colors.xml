@@ -11,6 +11,9 @@
     <color name="colorPrimaryDark">#232330</color>
     <color name="colorAccent">#5eb5c8</color>
     <color name="colorToolbar">#3683ae</color>
+    <color name="good">#4CAF50</color>
+    <color name="moderate">#F4E564</color>
+    <color name="poor">#F05B50</color>
     <color name="colorTextPrimary">#FFFFFF</color>
     <color name="colorTextSecondary">#A1A1A1</color>
     <color name="colorButtonBackground">#3A3A52</color>
@@ -64,6 +67,7 @@
     <color name="imageBorderColor">#E01E7A</color>
     <color name="miniTitle">#2A2E43</color>
     <color name="bg_Highlighter">#D0F1E0</color>
+    <color name="black_btn">#50504F</color>
 
     <color name="item_background">#FFFFFF</color> <!-- White background -->
     <color name="item_background_pressed">#E0E0E0</color> <!-- Light gray background for pressed state -->

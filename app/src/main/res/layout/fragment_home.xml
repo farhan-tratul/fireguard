@@ -78,46 +78,48 @@
                     android:orientation="horizontal"
                     android:layout_marginTop="3dp">
 
+
                     <TextView
+                        android:id="@+id/safetyTxt"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="10dp"
                         android:layout_weight=".5"
                         android:gravity="left"
                         android:fontFamily="@font/oswaldregular"
-                        android:text="Your Safety level"
+                        android:text="Check Your Safety level"
                         android:textColor="@color/colorTextPrimary"
                         android:textSize="16dp" />
-
-                    <TextView
-
+                    <Button
+                        android:id="@+id/predictBtn"
                         android:layout_width="0dp"
-                        android:layout_weight=".5"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/oakto"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".2"
                         android:layout_alignParentRight="true"
-                        android:layout_toRightOf="@+id/restOftime"
-                        android:text="Complete"
-                        android:fontFamily="@font/oswaldregular"
-                        android:textAlignment="viewEnd"
-                        android:textColor="@color/colorTextPrimary"
-                        android:textSize="16dp" />
+                        android:text="check"
+                        android:textColor="@color/Light"
+                        android:fontFamily="@font/oswaldsemibold"
+                        android:backgroundTint="@color/light_white"
+                        />
+
+<!--                    <TextView-->
+
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_weight=".5"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_below="@+id/oakto"-->
+<!--                        android:layout_alignParentRight="true"-->
+<!--                        android:layout_toRightOf="@+id/restOftime"-->
+<!--                        android:text="Complete"-->
+<!--                        android:fontFamily="@font/oswaldregular"-->
+<!--                        android:textAlignment="viewEnd"-->
+<!--                        android:textColor="@color/colorTextPrimary"-->
+<!--                        android:textSize="16dp" />-->
 
                 </LinearLayout>
 
 
-                <ProgressBar
-                    android:id="@+id/progress"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="5dp"
-                    android:layout_below="@+id/progresstitle"
-                    android:progressDrawable="@drawable/progress_bar_drawable"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginTop="10dp"
-                    android:max="100"
-                    android:progress="45" />
+
 
             </RelativeLayout>
 
