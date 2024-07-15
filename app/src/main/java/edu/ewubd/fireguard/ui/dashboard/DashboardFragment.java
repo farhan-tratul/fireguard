@@ -36,10 +36,12 @@ public class DashboardFragment extends Fragment {
     private DonutProgress humidityProgress;
     private DonutProgress gasProgress;
     private TextView temperatureView;
+    private DonutProgress CoView;
     private CollectionReference eventRef;
     DocumentReference docRef;
-    private double  Min = 100.0;
+    private double  Min = 0.0;
     private double Max = 10000.0;
+    private double C_Max=2000.0;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
@@ -53,6 +55,8 @@ public class DashboardFragment extends Fragment {
         humidityProgress = root.findViewById(R.id.Donut_Humidity_Progress);
         gasProgress = root.findViewById(R.id.Donut_Gas_Progress);
         temperatureView = root.findViewById(R.id.temparature);
+        CoView=root.findViewById(R.id.Carbon_Monoxide_Progress);
+
 
         // Initialize Firebase Firestore
         FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -95,12 +99,23 @@ public class DashboardFragment extends Fragment {
                           humidityProgress.setProgress(humidity.floatValue());
                       }
                       if(co_value!=null){
-                           // humidityProgress.setProgress(humidity.floatValue());
+                          double perc = ((co_value - Min) / (C_Max - Min)) * 100.0;
+                          if (perc>0){
+                              double floorValue = Math.ceil(perc);
+                              CoView.setProgress((float) floorValue);
+                          }
+                          else {CoView.setProgress(0);}
+
+
                       }
                       if(gas_value!=null){
                             double perc = ((gas_value - Min) / (Max - Min)) * 100.0;
-                            double floorValue = Math.ceil(perc);
-                            gasProgress.setProgress((float) floorValue);
+                          if (perc>0){
+                              double floorValue = Math.ceil(perc);
+                              gasProgress.setProgress((float) floorValue);
+                          }
+                          else {gasProgress.setProgress(0);}
+
                       }
                         Log.d(TAG, "DocumentSnapshot data: " + document.getData());
                     } else {
