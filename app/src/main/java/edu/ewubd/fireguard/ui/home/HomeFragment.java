@@ -1,5 +1,6 @@
 package edu.ewubd.fireguard.ui.home;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -56,6 +58,7 @@ public class HomeFragment extends Fragment
    Button checkBtn;
     DocumentReference docRef;
     double temp,gas,hum,co;
+    AlertDialog progressDialog;
     public interface RetrofitApi {
         @FormUrlEncoded
         @POST("/predict")
@@ -129,6 +132,13 @@ public class HomeFragment extends Fragment
             @Override
             public void onClick(View v) {
                 // Call postData method when the button is clicked
+                ProgressBar progressBar = new ProgressBar(getContext());
+                progressDialog = new AlertDialog.Builder(getContext())
+                        .setTitle("Loading")
+                        .setView(progressBar)
+                        .setCancelable(false)
+                        .create();
+                progressDialog.show();
                 fetchData();
             }
         });
@@ -182,6 +192,7 @@ public class HomeFragment extends Fragment
                         // Extract the "prediction" field
                         String prediction = jsonObject.getString("prediction");
                         Log.d("Response", "Prediction: " + prediction);
+                        progressDialog.dismiss();
                         updateSafetyLevel(prediction);
                     } catch (Exception e) {
                         Log.d("Response Error", "Error parsing response: " + e.getMessage());

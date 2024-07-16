@@ -99,7 +99,7 @@
                         android:text="check"
                         android:textColor="@color/Light"
                         android:fontFamily="@font/oswaldsemibold"
-                        android:backgroundTint="@color/light_white"
+                        android:backgroundTint="@color/Original_Color"
                         />
 
 <!--                    <TextView-->

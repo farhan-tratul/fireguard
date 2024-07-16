@@ -78,7 +78,7 @@
                             android:layout_height="wrap_content"
                             android:text="Fireguard is an IOT based android application for monitoring kitchen safety and alerting users."
                             android:textSize="16sp"
-                            android:fontFamily="@font/oswaldbold"
+                            android:fontFamily="@font/oswaldregular"
                             android:textColor="#000000"
                             android:layout_marginTop="8dp"/>
                     </LinearLayout>
@@ -130,7 +130,7 @@
                             android:layout_height="wrap_content"
                             android:text="- Gas Leak Detection: Sensitive detection system for natural gas or LPG. - Fire Detection: Integrated fire detection capabilities. - Remote Monitoring: Real-time alerts and monitoring. - Automation: Automated actions for safety. - User Awareness: Educational materials. - Simplified Installation: Easy setup."
                             android:textSize="16sp"
-                            android:fontFamily="@font/oswaldbold"
+                            android:fontFamily="@font/oswaldregular"
                             android:textColor="#000000"
                             android:layout_marginTop="8dp"/>
                     </LinearLayout>
@@ -182,7 +182,7 @@
                             android:layout_height="wrap_content"
                             android:text="- Dashboard for monitoring. - Notification alerts. - AI for safety checks. - Emergency contacts. - Safety Guide."
                             android:textSize="16sp"
-                            android:fontFamily="@font/oswaldbold"
+                            android:fontFamily="@font/oswaldregular"
                             android:textColor="#000000"
                             android:layout_marginTop="8dp"/>
                     </LinearLayout>
@@ -232,9 +232,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="- Connectivity dependency. - Sensor accuracy. - Battery life. - Scalability. - UI complexity."
+                            android:text="- Connectivity dependency.  - Battery life. - Scalability. "
                             android:textSize="16sp"
-                            android:fontFamily="@font/oswaldbold"
+                            android:fontFamily="@font/oswaldregular"
                             android:textColor="#000000"
                             android:layout_marginTop="8dp"/>
                     </LinearLayout>
@@ -285,7 +285,7 @@
                             android:layout_height="wrap_content"
                             android:text="- Enhanced UI. - Expanded hardware. - Offline functionality. - Advanced analytics. - Smart home integration."
                             android:textSize="16sp"
-                            android:fontFamily="@font/oswaldbold"
+                            android:fontFamily="@font/oswaldregular"
                             android:textColor="#000000"
                             android:layout_marginTop="8dp"/>
                     </LinearLayout>
