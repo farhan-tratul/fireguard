@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:text="About Us"
+        android:text="About FireGuard"
         android:fontFamily="@font/oswaldbold"
         android:textColor="#FFFFFF"
         android:textSize="40sp"
@@ -33,7 +33,7 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <!-- Team Member 1 -->
+            <!-- Concept Card -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -47,46 +47,37 @@
                     android:orientation="horizontal"
                     android:padding="16dp">
 
-                    <!-- Member Image -->
+                    <!-- Image -->
                     <ImageView
                         android:layout_width="80dp"
                         android:layout_height="80dp"
-                        android:src="@drawable/member1"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/concept"
                         android:scaleType="centerCrop"
                         android:layout_marginEnd="16dp"/>
 
-                    <!-- Member Details -->
+                    <!-- Content -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
-                        <!-- Member Name -->
+                        <!-- Title -->
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Azad"
+                            android:text="Concept"
                             android:textSize="24sp"
                             android:fontFamily="@font/oswaldbold"
                             android:textColor="#000000"
                             android:textStyle="bold"/>
 
-                        <!-- Member Role -->
+                        <!-- Summary -->
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Lead Developer"
-                            android:fontFamily="@font/oswaldbold"
-                            android:textColor="#000000"
+                            android:text="Fireguard is an IOT based android application for monitoring kitchen safety and alerting users."
                             android:textSize="16sp"
-                            android:layout_marginTop="4dp"/>
-
-                        <!-- Member Bio -->
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce condimentum nisi eu felis convallis."
-                            android:textSize="14sp"
                             android:fontFamily="@font/oswaldbold"
                             android:textColor="#000000"
                             android:layout_marginTop="8dp"/>
@@ -94,7 +85,7 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Team Member 2 -->
+            <!-- Objectives Card -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -108,46 +99,37 @@
                     android:orientation="horizontal"
                     android:padding="16dp">
 
-                    <!-- Member Image -->
+                    <!-- Image -->
                     <ImageView
                         android:layout_width="80dp"
                         android:layout_height="80dp"
-                        android:src="@drawable/member3"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/objectives"
                         android:scaleType="centerCrop"
                         android:layout_marginEnd="16dp"/>
 
-                    <!-- Member Details -->
+                    <!-- Content -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
-                        <!-- Member Name -->
+                        <!-- Title -->
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Farhan"
+                            android:text="Objectives"
                             android:textSize="24sp"
                             android:fontFamily="@font/oswaldbold"
                             android:textColor="#000000"
                             android:textStyle="bold"/>
 
-                        <!-- Member Role -->
+                        <!-- Summary -->
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="UX Designer"
-                            android:fontFamily="@font/oswaldbold"
-                            android:textColor="#000000"
+                            android:text="- Gas Leak Detection: Sensitive detection system for natural gas or LPG. - Fire Detection: Integrated fire detection capabilities. - Remote Monitoring: Real-time alerts and monitoring. - Automation: Automated actions for safety. - User Awareness: Educational materials. - Simplified Installation: Easy setup."
                             android:textSize="16sp"
-                            android:layout_marginTop="4dp"/>
-
-                        <!-- Member Bio -->
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce condimentum nisi eu felis convallis."
-                            android:textSize="14sp"
                             android:fontFamily="@font/oswaldbold"
                             android:textColor="#000000"
                             android:layout_marginTop="8dp"/>
@@ -155,7 +137,7 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Team Member 3 -->
+            <!-- Features Card -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -169,46 +151,37 @@
                     android:orientation="horizontal"
                     android:padding="16dp">
 
-                    <!-- Member Image -->
+                    <!-- Image -->
                     <ImageView
                         android:layout_width="80dp"
                         android:layout_height="80dp"
-                        android:src="@drawable/member4"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/features"
                         android:scaleType="centerCrop"
                         android:layout_marginEnd="16dp"/>
 
-                    <!-- Member Details -->
+                    <!-- Content -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
-                        <!-- Member Name -->
+                        <!-- Title -->
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Arifin Zaman"
+                            android:text="Features"
                             android:textSize="24sp"
                             android:fontFamily="@font/oswaldbold"
                             android:textColor="#000000"
                             android:textStyle="bold"/>
 
-                        <!-- Member Role -->
+                        <!-- Summary -->
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="UX Designer"
-                            android:fontFamily="@font/oswaldbold"
-                            android:textColor="#000000"
+                            android:text="- Dashboard for monitoring. - Notification alerts. - AI for safety checks. - Emergency contacts. - Safety Guide."
                             android:textSize="16sp"
-                            android:layout_marginTop="4dp"/>
-
-                        <!-- Member Bio -->
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce condimentum nisi eu felis convallis."
-                            android:textSize="14sp"
                             android:fontFamily="@font/oswaldbold"
                             android:textColor="#000000"
                             android:layout_marginTop="8dp"/>
@@ -216,7 +189,7 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Team Member 4 -->
+            <!-- Limitations Card -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -230,46 +203,88 @@
                     android:orientation="horizontal"
                     android:padding="16dp">
 
-                    <!-- Member Image -->
+                    <!-- Image -->
                     <ImageView
                         android:layout_width="80dp"
                         android:layout_height="80dp"
-                        android:src="@drawable/member2"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/limitations"
                         android:scaleType="centerCrop"
                         android:layout_marginEnd="16dp"/>
 
-                    <!-- Member Details -->
+                    <!-- Content -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
-                        <!-- Member Name -->
+                        <!-- Title -->
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Tandra"
+                            android:text="Limitations"
                             android:textSize="24sp"
                             android:fontFamily="@font/oswaldbold"
                             android:textColor="#000000"
                             android:textStyle="bold"/>
 
-                        <!-- Member Role -->
+                        <!-- Summary -->
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="UX Designer"
+                            android:text="- Connectivity dependency. - Sensor accuracy. - Battery life. - Scalability. - UI complexity."
+                            android:textSize="16sp"
                             android:fontFamily="@font/oswaldbold"
                             android:textColor="#000000"
-                            android:textSize="16sp"
-                            android:layout_marginTop="4dp"/>
+                            android:layout_marginTop="8dp"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-                        <!-- Member Bio -->
+            <!-- Future Work Card -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <!-- Image -->
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/future_work"
+                        android:scaleType="centerCrop"
+                        android:layout_marginEnd="16dp"/>
+
+                    <!-- Content -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <!-- Title -->
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce condimentum nisi eu felis convallis."
-                            android:textSize="14sp"
+                            android:text="Future Work"
+                            android:textSize="24sp"
+                            android:fontFamily="@font/oswaldbold"
+                            android:textColor="#000000"
+                            android:textStyle="bold"/>
+
+                        <!-- Summary -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="- Enhanced UI. - Expanded hardware. - Offline functionality. - Advanced analytics. - Smart home integration."
+                            android:textSize="16sp"
                             android:fontFamily="@font/oswaldbold"
                             android:textColor="#000000"
                             android:layout_marginTop="8dp"/>
@@ -279,4 +294,5 @@
 
         </LinearLayout>
     </ScrollView>
+
 </RelativeLayout>
