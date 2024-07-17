@@ -1,12 +1,16 @@
 package edu.ewubd.fireguard.ui.home;
 
+import static androidx.core.content.ContextCompat.getSystemService;
+
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -14,14 +18,16 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
@@ -56,6 +62,7 @@ public class HomeFragment extends Fragment
    RelativeLayout rl;
    TextView safetyTxt;
    Button checkBtn;
+   ConstraintLayout content_div;
     DocumentReference docRef;
     double temp,gas,hum,co;
     AlertDialog progressDialog;
@@ -76,8 +83,13 @@ public class HomeFragment extends Fragment
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState)
     {
+
+
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+        content_div=root.findViewById(R.id.conten_div);
+        LottieAnimationView animationView = root.findViewById(R.id.animationView);
+        animationView.setAnimation(R.raw.animation);
 
         Window window = getActivity().getWindow();
             window.setStatusBarColor(ContextCompat.getColor(getContext(), R.color.colorAccent));
@@ -139,11 +151,30 @@ public class HomeFragment extends Fragment
                         .setCancelable(false)
                         .create();
                 progressDialog.show();
-                fetchData();
+                if (isWifiConnected(getContext())||isInternetAvailable(getContext())){
+                    fetchData();
+                }
+                else {
+                    content_div.setVisibility(View.GONE);
+                    progressDialog.dismiss();
+                    animationView.setVisibility(View.VISIBLE);
+                    animationView.playAnimation(); // Play the animation
+
+                }
+
             }
         });
 
 
+        root.setOnTouchListener((v, event) -> {
+            // Hide the LottieAnimationView and cancel the animation if it's visible
+            if (animationView.getVisibility() == View.VISIBLE) {
+                animationView.cancelAnimation();
+                animationView.setVisibility(View.GONE);
+                content_div.setVisibility(View.VISIBLE);
+            }
+            return true; // Return true to indicate the event is consumed
+        });
 
 
 
@@ -196,15 +227,19 @@ public class HomeFragment extends Fragment
                         updateSafetyLevel(prediction);
                     } catch (Exception e) {
                         Log.d("Response Error", "Error parsing response: " + e.getMessage());
+
+                        progressDialog.dismiss();
                     }
                 } else {
                     Log.d("Response Error", "Response Code: " + response.code());
+                    progressDialog.dismiss();
                 }
             }
 
             @Override
             public void onFailure(Call<PredictionResponse> call, Throwable t) {
                 Log.d("Error found is:", t.getMessage());
+                progressDialog.dismiss();
             }
         });
     }
@@ -263,4 +298,25 @@ public class HomeFragment extends Fragment
     }
 
 
+    public static boolean isInternetAvailable(Context context) {
+        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (connectivityManager != null) {
+            NetworkInfo activeNetwork = connectivityManager.getActiveNetworkInfo();
+            if (activeNetwork != null && activeNetwork.isConnected()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean isWifiConnected(Context context) {
+        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (connectivityManager != null) {
+            NetworkInfo wifiNetwork = connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+            if (wifiNetwork != null && wifiNetwork.isConnected()) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
