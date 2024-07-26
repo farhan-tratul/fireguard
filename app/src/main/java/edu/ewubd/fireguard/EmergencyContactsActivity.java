@@ -31,8 +31,6 @@ public class EmergencyContactsActivity extends AppCompatActivity {
         emergencyContacts.add(new EmergencyContact("Fire Service\t(১৯৯)", "199"));
         emergencyContacts.add(new EmergencyContact("Ambulance\t(16263)", "16263"));
         emergencyContacts.add(new EmergencyContact("Police\t(৯৯৯)", "999"));
-        emergencyContacts.add(new EmergencyContact("শিশু সহায়তা\t(১০৯৮)", "1098"));
-        emergencyContacts.add(new EmergencyContact("নারী ও শিশু নির্যাতন\t(১০৯)", "109"));
         emergencyContacts.add(new EmergencyContact("দুর্যোগের আগাম বার্তা\t(১০৯৪১)", "10941"));
         emergencyContacts.add(new EmergencyContact("তথ্য সেবা\t(৩৩৩)", "333"));
 
