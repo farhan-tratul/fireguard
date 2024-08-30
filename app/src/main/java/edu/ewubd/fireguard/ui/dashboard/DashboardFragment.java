@@ -41,7 +41,7 @@ public class DashboardFragment extends Fragment {
     DocumentReference docRef;
     private double  Min = 0.0;
     private double Max = 10000.0;
-    private double C_Max=2000.0;
+    private double C_Max=50.0;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
